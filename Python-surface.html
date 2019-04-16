@@ -1,0 +1,3374 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>Surface | Pygame中文文档,《零基础入门学习Python》【第一版】,Python交流,鱼C论坛 -  Powered by Discuz!</title>
+<link href="https://fishc.com.cn/thread-62190-1-1.html" rel="canonical" />
+<script type="text/javascript">
+      var status = 'login';
+    (function() {
+        _fmOpt = {
+            partner: "fishc",
+	        appName: "fishc_web",
+            token: 'fishc-1555418927-8208945010109591',
+            initialTime: new Date().getTime(),
+            getinfo: function(){
+                return 'e3Y6ICIyLjUuMCIsIG9zOiAid2ViIiwgczogMTk5LCBlOiAianMgbm90IGRvd25sb2FkIn0=';
+            },
+            display: 'popup', 
+            width: '230px', 
+            height:'38px',
+            container: '#captcha', 
+            area: '.customForm',
+
+           onSuccess:function(token){
+           	    
+               var input = document.createElement('input');  
+                 input.setAttribute('type', 'hidden');  
+                 input.setAttribute('name', 'validate_token');
+                 input.setAttribute('id', 'validateToken');
+                 input.setAttribute('value', token);
+                document.getElementById(status).appendChild(input); 
+
+                var blackBoxInput = document.createElement('input');  
+                 blackBoxInput.setAttribute('type', 'hidden');  
+                 blackBoxInput.setAttribute('name', 'black_box');
+                 blackBoxInput.setAttribute('id', 'blackBox');
+                 blackBoxInput.setAttribute('value', _fmOpt.getinfo());
+                document.getElementById(status).appendChild(blackBoxInput); 
+                  
+                if(status=='postform'){
+                var xingwei = document.getElementById('xingwei');
+                xingwei.style.color = 'black'; 
+                }
+				 if(status=='fastpostform'){
+				 	setTimeout(function(){
+				 		_fmOpt.reset();
+       				var par=document.getElementById(status);
+       				var validateToken = document.getElementById('validateToken');
+       				par.removeChild(validateToken);
+       				var blackBox = document.getElementById('blackBox');
+       				par.removeChild(blackBox);
+				 	}, 5*1000)
+
+                }
+              
+
+            }
+
+        };
+        _fmOpt.flashSwitch=false;
+        var fm = document.createElement('script'); fm.type = 'text/javascript';
+         fm.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'static.tongdun.net/captcha/main/tdc.js?ver=1.0&t=' + (new Date().getTime()/600000).toFixed(0);
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(fm, s);
+
+       
+   
+    })();
+</script>
+<meta name="keywords" content="鱼C论坛《零基础入门学习Python》【第一版】Python交流Surface | Pygame中文文档" />
+<meta name="description" content=" Surface | Pygame中文文档 " />
+<meta name="generator" content="Discuz! X3.4" />
+<meta name="author" content="Discuz! Team and Comsenz UI Team" />
+<meta name="copyright" content="2001-2017 Comsenz Inc." />
+<meta name="MSSmartTagsPreventParsing" content="True" />
+<meta http-equiv="MSThemeCompatible" content="Yes" />
+<base href="https://fishc.com.cn/" /><link rel="stylesheet" type="text/css" href="data/cache/style_1_common.css?qqI" /><link rel="stylesheet" type="text/css" href="data/cache/style_1_forum_viewthread.css?qqI" /><link rel="stylesheet" id="css_extstyle" type="text/css" href="./template/default/style/t2/style.css" /><script type="text/javascript">var STYLEID = '1', STATICURL = 'static/', IMGDIR = 'static/image/common', VERHASH = 'qqI', charset = 'gbk', discuz_uid = '0', cookiepre = 'oMVX_2132_', cookiedomain = '', cookiepath = '/', showusercard = '1', attackevasive = '0', disallowfloat = 'login|newthread', creditnotice = '1|荣誉|,2|鱼币|,3|贡献|,5|技术值|,6|C币|', defaultstyle = './template/default/style/t2', REPORTURL = 'aHR0cHM6Ly9maXNoYy5jb20uY24vZm9ydW0ucGhwP21vZD12aWV3dGhyZWFkJnRpZD02MjE5MCZleHRyYT1wYWdlJTNEMSZwYWdlPTE=', SITEURL = 'https://fishc.com.cn/', JSPATH = 'data/cache/', CSSPATH = 'data/cache/style_', DYNAMICURL = '';</script>
+<script src="data/cache/common.js?qqI" type="text/javascript"></script>
+<meta name="application-name" content="鱼C论坛" />
+<meta name="msapplication-tooltip" content="鱼C论坛" />
+<meta name="msapplication-task" content="name=论坛;action-uri=https://fishc.com.cn/forum.php;icon-uri=https://fishc.com.cn/static/image/common/bbs.ico" />
+<meta name="msapplication-task" content="name=群组;action-uri=https://fishc.com.cn/group.php;icon-uri=https://fishc.com.cn/static/image/common/group.ico" /><meta name="msapplication-task" content="name=空间;action-uri=https://fishc.com.cn/home.php;icon-uri=https://fishc.com.cn/static/image/common/home.ico" /><link rel="archives" title="鱼C论坛" href="https://fishc.com.cn/archiver/" />
+<link rel="stylesheet" id="css_widthauto" type="text/css" href='data/cache/style_1_widthauto.css?qqI' />
+<script type="text/javascript">HTMLNODE.className += ' widthauto'</script>
+<script src="data/cache/forum.js?qqI" type="text/javascript"></script>
+</head>
+
+<body id="nv_forum" class="pg_viewthread" onkeydown="if(event.keyCode==27) return false;">
+<div id="append_parent"></div><div id="ajaxwaitid"></div>
+<div id="toptb" class="cl">
+<div class="wp">
+<div class="z"><a href="javascript:;"  onclick="setHomepage('https://fishc.com.cn/');">设为首页</a><a href="https://fishc.com.cn/"  onclick="addFavorite(this.href, '鱼C论坛');return false;">收藏本站</a></div>
+<div class="y">
+<a id="switchblind" href="javascript:;" onclick="toggleBlind(this)" title="开启辅助访问" class="switchblind">开启辅助访问</a>
+</div>
+</div>
+</div>
+
+<div id="qmenu_menu" class="p_pop blk" style="display: none;">
+<div class="ptm pbw hm">
+请 <a href="javascript:;" class="xi2" onclick="lsSubmit()"><strong>登录</strong></a> 后使用快捷导航<br />没有帐号？<a href="member.php?mod=register_86" class="xi2 xw1">立即注册</a>
+</div>
+<div id="fjump_menu" class="btda"></div></div><div id="hd">
+<div class="wp">
+<div class="hdc cl"><h2><a href="https://fishc.com.cn/" title="鱼C论坛"><img src="static/image/common/logo.png" alt="鱼C论坛" border="0" /></a></h2><script src="data/cache/logging.js?qqI" type="text/javascript"></script>
+<form method="post" autocomplete="off" id="lsform" action="member.php?mod=logging&amp;action=login&amp;loginsubmit=yes&amp;infloat=yes&amp;lssubmit=yes" onsubmit="pwmd5('ls_password');return lsSubmit();">
+<div class="fastlg cl">
+<span id="return_ls" style="display:none"></span>
+<div class="y pns">
+<table cellspacing="0" cellpadding="0">
+<tr>
+<td><label for="ls_username">帐号</label></td>
+<td><input type="text" name="username" id="ls_username" class="px vm xg1"  value="用户名/Email" onfocus="if(this.value == '用户名/Email'){this.value = '';this.className = 'px vm';}" onblur="if(this.value == ''){this.value = '用户名/Email';this.className = 'px vm xg1';}" tabindex="901" /></td>
+<td class="fastlg_l"><label for="ls_cookietime"><input type="checkbox" name="cookietime" id="ls_cookietime" class="pc" value="2592000" tabindex="903" />自动登录</label></td>
+<td>&nbsp;<a href="javascript:;" onclick="showWindow('login', 'member.php?mod=logging&action=login&viewlostpw=1')">找回密码</a></td>
+</tr>
+<tr>
+<td><label for="ls_password">密码</label></td>
+<td><input type="password" name="password" id="ls_password" class="px vm" autocomplete="off" tabindex="902" /></td>
+<td class="fastlg_l"><button type="submit" class="pn vm" tabindex="904" style="width: 75px;"><em>登录</em></button></td>
+<td>&nbsp;<a href="member.php?mod=register_86" class="xi2 xw1">立即注册</a></td>
+</tr>
+</table>
+<input type="hidden" name="quickforward" value="yes" />
+<input type="hidden" name="handlekey" value="ls" />
+</div>
+
+<div class="fastlg_fm y" style="margin-right: 10px; padding-right: 10px">
+<p><a href="javascript:;" onclick="showWindow('wechat_bind', 'plugin.php?id=wechat:bind')"><img src="source/plugin/wechat/image/wechat_login.png" class="vm" /></a></p>
+<p class="hm xg1" style="padding-top: 2px;">扫一扫，访问微社区</p>
+</div>
+  <script type="text/javascript" defer="true" >
+      
+            var newCap = {display:'bind',container:'#lsform button'};
+             //_fmOpt.newCaptcha(newCap)
+             newCap.onSuccess = function(token){
+                
+             var input = document.createElement('input');  
+                 input.setAttribute('type', 'hidden');  
+                 input.setAttribute('name', 'validate_token');
+                 input.setAttribute('value', token);
+                document.getElementById('lsform').appendChild(input); 
+
+                var blackBoxInput = document.createElement('input');  
+                 blackBoxInput.setAttribute('type', 'hidden');  
+                 blackBoxInput.setAttribute('name', 'black_box');
+                 blackBoxInput.setAttribute('value', _fmOpt.getinfo());
+                document.getElementById('lsform').appendChild(blackBoxInput); 
+                lsSubmit();
+        };
+
+             document.getElementById('lsform').addEventListener('click', function(e){
+                if (e.target.nodeName.toLowerCase() === 'button' || e.target.parentNode.nodeName.toLowerCase() === 'button') {
+            e.preventDefault();
+            e.stopPropagation();
+                   }
+           
+        });
+        var interval = setInterval(function(){
+            if (_fmOpt.newCaptcha) {
+                clearInterval(interval);
+                _fmOpt.newCaptcha(newCap);
+                
+            }
+        }, 100);
+        
+    </script>
+</div>
+</form>
+
+<script src="data/cache/md5.js?qqI" type="text/javascript" reload="1"></script>
+</div>
+
+<div id="nv">
+<a href="javascript:;" id="qmenu" onmouseover="delayShow(this, function () {showMenu({'ctrlid':'qmenu','pos':'34!','ctrlclass':'a','duration':2});showForummenu(243);})">快捷导航</a>
+<ul><li id="mn_forum" ><a href="https://fishc.com.cn/forum.php?mod=guide" hidefocus="true" title="Guide"   style="font-weight: bold;">导读<span>Guide</span></a></li><li class="a" id="mn_forum_2" ><a href="https://fishc.com.cn/forum.php" hidefocus="true" title="BBS"   style="font-weight: bold;">论坛<span>BBS</span></a></li><li id="mn_home" ><a href="https://fishc.com.cn/home.php" hidefocus="true" title="Space"   style="font-weight: bold;">空间<span>Space</span></a></li><li id="mn_forum_11" ><a href="https://fishc.com.cn/forum.php?mod=collection" hidefocus="true" title="Collection"   style="font-weight: bold;">淘帖<span>Collection</span></a></li><li id="mn_Nc00d" ><a href="bestanswer.php" hidefocus="true" title="S~O~S"   style="font-weight: bold;color: orange">互助平台<span>S~O~S</span></a></li><li id="mn_group" ><a href="https://fishc.com.cn/group.php" hidefocus="true" title="Group"   style="font-weight: bold;">群组<span>Group</span></a></li><li id="mn_N642e" ><a href="https://fishc.com.cn/forum-105-1.html" hidefocus="true" title="Books"   style="font-weight: bold;">好书<span>Books</span></a></li><li id="mn_N4dac" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="#" hidefocus="true" target="_blank"   style="font-weight: bold;color: orange">VIP通道</a></li><li id="mn_Nac60" ><a href="plugin.php?id=k_misign:sign" hidefocus="true"   style="font-weight: bold;">签到</a></li><li id="mn_N1370" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="https://item.taobao.com/item.htm?id=528146888326" hidefocus="true" target="_blank"   style="font-weight: bold;color: yellow">鱼币充值/账号升级</a></li></ul>
+</div>
+<ul class="p_pop h_pop" id="mn_N4dac_menu" style="display: none"><li><a href="https://fishc.com.cn/thread-51842-1-1.html" hidefocus="true" target="_blank"  style="color: red">教学资源打包（VIP特权）</a></li><li><a href="https://fishc.com.cn/forum-149-1.html" hidefocus="true" target="_blank" >VIP每月领取津贴</a></li><li><a href="http://ilovefishc.com/dvd/vip.html" hidefocus="true" target="_blank" >VIP会员特权一览</a></li></ul><ul class="p_pop h_pop" id="mn_N1370_menu" style="display: none"><li><a href="https://item.taobao.com/item.htm?id=528146888326" hidefocus="true" target="_blank"  style="color: red">至尊会员（终身）</a></li><li><a href="plugin.php?id=keke_chongzhi" hidefocus="true" >鱼币充值</a></li></ul><div id="mu" class="cl">
+</div><div id="scbar" class="cl">
+<form id="scbar_form" method="post" autocomplete="off" onsubmit="searchFocus($('scbar_txt'))" action="search.php?searchsubmit=yes" target="_blank">
+<input type="hidden" name="mod" id="scbar_mod" value="search" />
+<input type="hidden" name="formhash" value="b20f009e" />
+<input type="hidden" name="srchtype" value="title" />
+<input type="hidden" name="srhfid" value="243" />
+<input type="hidden" name="srhlocality" value="forum::viewthread" />
+<table cellspacing="0" cellpadding="0">
+<tr>
+<td class="scbar_icon_td"></td>
+<td class="scbar_txt_td"><input type="text" name="srchtxt" id="scbar_txt" value="请输入搜索内容" autocomplete="off" x-webkit-speech speech /></td>
+<td class="scbar_type_td"><a href="javascript:;" id="scbar_type" class="xg1" onclick="showMenu(this.id)" hidefocus="true">搜索</a></td>
+<td class="scbar_btn_td"><button type="submit" name="searchsubmit" id="scbar_btn" sc="1" class="pn pnc" value="true"><strong class="xi2">搜索</strong></button></td>
+<td class="scbar_hot_td">
+<div id="scbar_hot">
+<strong class="xw1">热搜: </strong>
+
+<a href="search.php?mod=forum&amp;srchtxt=%BC%AB%BF%CDPython&amp;formhash=b20f009e&amp;searchsubmit=true&amp;source=hotsearch" target="_blank" class="xi2" sc="1">极客Python</a>
+
+
+
+<a href="search.php?mod=forum&amp;srchtxt=C%D3%EF%D1%D4%D1%A7%CF%B0%BB%B7%BE%B3&amp;formhash=b20f009e&amp;searchsubmit=true&amp;source=hotsearch" target="_blank" class="xi2" sc="1">C语言学习环境</a>
+
+</div>
+</td>
+</tr>
+</table>
+</form>
+</div>
+<ul id="scbar_type_menu" class="p_pop" style="display: none;"><li><a href="javascript:;" rel="curforum" fid="243" >本版</a></li><li><a href="javascript:;" rel="user">用户</a></li></ul>
+<script type="text/javascript">
+initSearchmenu('scbar', '');
+</script>
+</div>
+</div>
+
+
+<div id="wp" class="wp">
+<script type="text/javascript">var fid = parseInt('243'), tid = parseInt('62190');</script>
+
+<script src="data/cache/forum_viewthread.js?qqI" type="text/javascript"></script>
+<script type="text/javascript">zoomstatus = parseInt(1);var imagemaxwidth = '880';var aimgcount = new Array();</script>
+
+<style id="diy_style" type="text/css"></style>
+<!--[diy=diynavtop]--><div id="diynavtop" class="area"></div><!--[/diy]-->
+<div id="pt" class="bm cl">
+<div class="z">
+<a href="./" class="nvhm" title="首页">鱼C论坛</a><em>&raquo;</em><a href="https://fishc.com.cn/forum.php">论坛</a> <em>&rsaquo;</em> <a href="https://fishc.com.cn/forum.php?gid=28">技术交流区</a> <em>&rsaquo;</em> <a href="https://fishc.com.cn/forum-173-1.html">Python交流</a> <em>&rsaquo;</em> <a href="https://fishc.com.cn/forum-243-1.html">《零基础入门学习Python》【第一版】</a> <em>&rsaquo;</em> <a href="https://fishc.com.cn/thread-62190-1-1.html">Surface | Pygame中文文档</a>
+</div>
+</div>
+
+<!--BS To Baidu OK @2017-10-09 18:51:19--><style id="diy_style" type="text/css"></style>
+<div class="wp">
+<!--[diy=diy1]--><div id="diy1" class="area"></div><!--[/diy]-->
+</div>
+
+<div id="ct" class="wp cl">
+<div id="pgt" class="pgs mbm cl ">
+<div class="pgt"></div>
+<span class="y pgb"><a href="https://fishc.com.cn/forum-243-1.html">返回列表</a></span>
+<a id="newspecial" onmouseover="$('newspecial').id = 'newspecialtmp';this.id = 'newspecial';showMenu({'ctrlid':this.id})" onclick="showWindow('newthread', 'forum.php?mod=post&action=newthread&fid=243')" href="javascript:;" title="发新帖"><img src="static/image/common/pn_post.png" alt="发新帖" /></a></div>
+
+
+
+<div id="postlist" class="pl bm">
+<table cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls ptn pbn">
+<div class="hm ptn">
+<span class="xg1">查看:</span> <span class="xi1">14612</span><span class="pipe">|</span><span class="xg1">回复:</span> <span class="xi1">18</span>
+</div>
+</td>
+<td class="plc ptm pbn vwthd">
+<div class="y">
+<a href="https://fishc.com.cn/forum.php?mod=viewthread&amp;action=printable&amp;tid=62190" title="打印" target="_blank"><img src="static/image/common/print.png" alt="打印" class="vm" /></a>
+<a href="https://fishc.com.cn/forum.php?mod=redirect&amp;goto=nextoldset&amp;tid=62190" title="上一主题"><img src="static/image/common/thread-prev.png" alt="上一主题" class="vm" /></a>
+<a href="https://fishc.com.cn/forum.php?mod=redirect&amp;goto=nextnewset&amp;tid=62190" title="下一主题"><img src="static/image/common/thread-next.png" alt="下一主题" class="vm" /></a>
+</div>
+<h1 class="ts">
+<a href="https://fishc.com.cn/forum.php?mod=forumdisplay&amp;fid=243&amp;filter=typeid&amp;typeid=605">[Pygame]</a>
+<span id="thread_subject">Surface | Pygame中文文档</span>
+</h1>
+<span class="xg1">
+<a href="https://fishc.com.cn/thread-62190-1-1.html" onclick="return copyThreadUrl(this, '鱼C论坛')" >[复制链接]</a>
+</span>
+</td>
+</tr>
+</table>
+
+
+<table cellspacing="0" cellpadding="0" class="ad">
+<tr>
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table><div id="post_2366597" ><table id="pid2366597" class="plhin" summary="pid2366597" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar2366597" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="https://fishc.com.cn/space-uid-9.html" target="_blank" class="xw1" style="color: #00FF7F">小甲鱼</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo2366597" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo2366597_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="https://fishc.com.cn/space-uid-9.html" target="_blank" class="xi2" style="color: #00FF7F">小甲鱼</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+	<dt>UID</dt><dd><a href="?9" target="_blank" class="xi2">9</a></dd>
+	<dt>日志</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=9&do=blog&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>相册</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=9&do=album&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>贡献</dt><dd> </dd>
+	<dt>荣誉</dt><dd> </dd>
+	<dt>技术值</dt><dd> </dd>	
+</dl><div class="imicn">
+<a href="https://fishc.com.cn/home.php?mod=space&amp;uid=9&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="https://fishc.com.cn/space-uid-9.html" class="avtm" target="_blank"><img src="https://fishc.com.cn/ucenter/avatar.php?uid=9&size=middle" /></a></div>
+</div>
+<dl class="pil cl"><dt><a href="bestanswer.php?mod=user&uid=9" target="_blank"><font color=red>最佳答案</font></a></dt><dd><a href="bestanswer.php?mod=user&uid=9" target="_blank"><font color=red>259</font></a>&nbsp; </dd></dl></div>
+</td>
+<td class="plc">
+<div class="pi">
+<div id="fj" class="y">
+<label class="z">电梯直达</label>
+<input type="text" class="px p_fre z" size="2" onkeyup="$('fj_btn').href='forum.php?mod=redirect&ptid=62190&authorid=0&postno='+this.value" onkeydown="if(event.keyCode==13) {window.location=$('fj_btn').href;return false;}" title="跳转到指定楼层" />
+<a href="javascript:;" id="fj_btn" class="z" title="跳转到指定楼层"><img src="static/image/common/fj_btn.png" alt="跳转到指定楼层" class="vm" /></a>
+</div>
+<strong>
+<a href="https://fishc.com.cn/thread-62190-1-1.html"   id="postnum2366597" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>1</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon2366597" src="static/image/common/online_admin.gif" />
+<em id="authorposton2366597">发表于 2015-6-19 00:04:52</em>
+<span class="pipe">|</span>
+<a href="https://fishc.com.cn/forum.php?mod=viewthread&amp;tid=62190&amp;page=1&amp;authorid=9" rel="nofollow">只看该作者</a>
+<span class="none"><img src="static/image/common/arw_r.gif" class="vm" alt="回帖奖励" /></span>
+<span class="pipe show">|</span><a href="https://fishc.com.cn/forum.php?mod=viewthread&amp;tid=62190&amp;extra=page%3D1&amp;ordertype=1"  class="show">倒序浏览</a>
+<span class="pipe show">|</span><a href="javascript:;" onclick="readmode($('thread_subject').innerHTML, 2366597);" class="show">阅读模式</a>
+</div>
+</div>
+</div><div class="pct"><style type="text/css">.pcb{margin-right:0}</style><div class="pcb">
+ 
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_2366597">
+<div class="attach_nopermission attach_tips">
+<div>
+<h3><strong>
+马上注册，结交更多好友，享用更多功能^_^</strong></h3>
+<p>您需要 <a href="member.php?mod=logging&amp;action=login" onclick="showWindow('login', this.href);return false;">登录</a> 才可以下载或查看，没有帐号？<a href="member.php?mod=register_86" title="注册帐号">立即注册</a> 
+<a href="javascript:;" onclick="showWindow('wechat_bind', 'plugin.php?id=wechat:bind')"><img src="source/plugin/wechat/image/wechat_login.png" class="vm" /></a>
+</p>
+</div>
+<span class="atips_close" onclick="this.parentNode.style.display='none'">x</span>
+</div>
+<div align="center"><font size="5"><strong><font color="SeaGreen">Surface | Pygame 中文文档</font></strong></font></div><br />
+<br />
+<i><font color="Red">提示：该文档较长，请善用 Ctrl - F 定位查找需要的内容……</font></i><br />
+<br />
+<font size="3"><strong><font color="SeaGreen">class pygame.BufferProxy</font></strong></font><br />
+<br />
+Pygame 中用于表示图像的对象。<br />
+<br />
+Surface((width, height), flags=0, depth=0, masks=None) -&gt; Surface<br />
+<br />
+Surface((width, height), flags=0, Surface) -&gt; Surface<br />
+<br />
+<br />
+<font color="SeaGreen"><font size="3"><strong>属性 &amp; 方法</strong></font></font><br />
+<br />
+<ul><li>pygame.Surface.blit()&nbsp;&nbsp;—&nbsp;&nbsp;将一个图像（Surface 对象）绘制到另一个图像上方<li>pygame.Surface.convert()&nbsp;&nbsp;—&nbsp;&nbsp;修改图像（Surface 对象）的像素格式<li>pygame.Surface.convert_alpha()&nbsp;&nbsp;—&nbsp;&nbsp;修改图像（Surface 对象）的像素格式，包含 alpha 通道<li>pygame.Surface.copy()&nbsp;&nbsp;—&nbsp;&nbsp;创建一个 Surface 对象的拷贝<li>pygame.Surface.fill()&nbsp;&nbsp;—&nbsp;&nbsp;使用纯色填充 Surface 对象<li>pygame.Surface.scroll()&nbsp;&nbsp;—&nbsp;&nbsp;移动 Surface 对象<li>pygame.Surface.set_colorkey()&nbsp;&nbsp;—&nbsp;&nbsp;设置 colorkeys<li>pygame.Surface.get_colorkey()&nbsp;&nbsp;—&nbsp;&nbsp;获取 colorkeys<li>pygame.Surface.set_alpha()&nbsp;&nbsp;—&nbsp;&nbsp;设置整个图像的透明度<li>pygame.Surface.get_alpha()&nbsp;&nbsp;—&nbsp;&nbsp;获取整个图像的透明度<li>pygame.Surface.lock()&nbsp;&nbsp;—&nbsp;&nbsp;锁定 Surface 对象的内存使其可以进行像素访问<li>pygame.Surface.unlock()&nbsp;&nbsp;—&nbsp;&nbsp;解锁 Surface 对象的内存使其无法进行像素访问<li>pygame.Surface.mustlock()&nbsp;&nbsp;—&nbsp; &nbsp;检测该 Surface 对象是否需要被锁定<li>pygame.Surface.get_locked()&nbsp;&nbsp;—&nbsp;&nbsp;检测该 Surface 对象当前是否为锁定状态<li>pygame.Surface.get_locks()&nbsp;&nbsp;—&nbsp;&nbsp;返回该 Surface 对象的锁定<li>pygame.Surface.get_at()&nbsp;&nbsp;—&nbsp;&nbsp;获取一个像素的颜色值<li>pygame.Surface.set_at()&nbsp;&nbsp;—&nbsp;&nbsp;设置一个像素的颜色值<li>pygame.Surface.get_at_mapped()&nbsp;&nbsp;—&nbsp;&nbsp;获取一个像素映射的颜色索引号<li>pygame.Surface.get_palette()&nbsp;&nbsp;—&nbsp; &nbsp;获取 Surface 对象 8 位索引的调色板<li>pygame.Surface.get_palette_at()&nbsp;&nbsp;—&nbsp;&nbsp;返回给定索引号在调色板中的颜色值<li>pygame.Surface.set_palette()&nbsp;&nbsp;—&nbsp;&nbsp;设置 Surface 对象 8 位索引的调色板<li>pygame.Surface.set_palette_at()&nbsp;&nbsp;—&nbsp;&nbsp;设置给定索引号在调色板中的颜色值<li>pygame.Surface.map_rgb()&nbsp;&nbsp;—&nbsp;&nbsp;将一个 RGBA 颜色转换为映射的颜色值<li>pygame.Surface.unmap_rgb()&nbsp;&nbsp;—&nbsp;&nbsp;将一个映射的颜色值转换为 Color 对象<li>pygame.Surface.set_clip()&nbsp;&nbsp;—&nbsp;&nbsp;设置该 Surface 对象的当前剪切区域<li>pygame.Surface.get_clip()&nbsp;&nbsp;—&nbsp;&nbsp;获取该 Surface 对象的当前剪切区域<li>pygame.Surface.subsurface()&nbsp;&nbsp;—&nbsp;&nbsp;根据父对象创建一个新的子 Surface 对象<li>pygame.Surface.get_parent()&nbsp;&nbsp;—&nbsp;&nbsp;获取子 Surface 对象的父对象<li>pygame.Surface.get_abs_parent()&nbsp;&nbsp;—&nbsp;&nbsp;获取子 Surface 对象的顶层父对象<li>pygame.Surface.get_offset()&nbsp;&nbsp;—&nbsp;&nbsp;获取子 Surface 对象在父对象中的偏移位置<li>pygame.Surface.get_abs_offset()&nbsp;&nbsp;—&nbsp;&nbsp;获取子 Surface 对象在顶层父对象中的偏移位置<li>pygame.Surface.get_size()&nbsp;&nbsp;—&nbsp;&nbsp;获取 Surface 对象的尺寸<li>pygame.Surface.get_width()&nbsp;&nbsp;—&nbsp;&nbsp;获取 Surface 对象的宽度<li>pygame.Surface.get_height()&nbsp;&nbsp;—&nbsp;&nbsp;获取 Surface 对象的高度<li>pygame.Surface.get_rect()&nbsp;&nbsp;—&nbsp;&nbsp;获取 Surface 对象的矩形区域<li>pygame.Surface.get_bitsize()&nbsp;&nbsp;—&nbsp;&nbsp;获取 Surface 对象像素格式的位深度<li>pygame.Surface.get_bytesize()&nbsp;&nbsp;—&nbsp;&nbsp;获取 Surface 对象每个像素使用的字节数<li>pygame.Surface.get_flags()&nbsp;&nbsp;—&nbsp;&nbsp;获取 Surface 对象的附加标志<li>pygame.Surface.get_pitch()&nbsp;&nbsp;—&nbsp;&nbsp;获取 Surface 对象每行占用的字节数<li>pygame.Surface.get_masks()&nbsp;&nbsp;—&nbsp;&nbsp;获取用于颜色与映射索引号之间转换的掩码<li>pygame.Surface.set_masks()&nbsp;&nbsp;—&nbsp;&nbsp;设置用于颜色与映射索引号之间转换的掩码<li>pygame.Surface.get_shifts()&nbsp;&nbsp;—&nbsp;&nbsp;获取当位移动时在颜色与映射索引号之间转换的掩码<li>pygame.Surface.set_shifts()&nbsp;&nbsp;—&nbsp;&nbsp;设置当位移动时在颜色与映射索引号之间转换的掩码<li>pygame.Surface.get_losses()&nbsp;&nbsp;—&nbsp;&nbsp;获取最低有效位在颜色与映射索引号之间转换的掩码<li>pygame.Surface.get_bounding_rect()&nbsp;&nbsp;—&nbsp;&nbsp;获取最小包含所有数据的 <a href="http://bbs.fishc.com/thread-62186-1-1.html" target="_blank">Rect</a> 对象<li>pygame.Surface.get_view()&nbsp;&nbsp;—&nbsp;&nbsp;获取 Surface 对象的像素缓冲区视图<li>pygame.Surface.get_buffer()&nbsp;&nbsp;—&nbsp;&nbsp;获取 Surface 对象的像素缓冲区对象<li>pygame.Surface._pixels_address&nbsp;&nbsp;—&nbsp;&nbsp;像素缓冲区地址<br />
+</ul><br />
+Pygame 的 Surface 对象用于表示任何一个图像，Surface 对象具有固定的分辨率和像素格式。Surface 对象通过 8 位索引调色板的 24 位色彩。<br />
+<br />
+只需要指定尺寸，就能调用 pygame.Surface() 创建一个新的图像对象，创建出来的 Surface 默认是全黑色。如果没有指定其他参数，将创建出最适合当前显示器的 Surface 对象。<br />
+<br />
+像素格式可以通过传递 depth 参数或一个已存在的 Surface 对象来控制。flags 参数是 Surface 对象额外功能的掩码。你可以传递任何下列标志的组合：<br />
+<br />
+<table cellspacing="0" class="t_table" style="width:500px"><tr><td> HWSURFACE</td><td>将创建出来的 Surface 对象存放于显存中</td></tr><tr><td> SRCALPHA</td><td>每个像素包含一个 alpha 通道</td></tr></table><br />
+只能使用两个 flags 中的一个，并且无法支持所有的显示和格式。<br />
+<br />
+高级用法可以结合 masks 和 depth 参数，masks 是由 4 个整数组（小甲鱼温馨提示：(R, G, B, A)），将于每个像素的颜色进行按位与计算。通常，Surface 对象不需要 masks 参数。<br />
+<br />
+Surface 对象可以拥有许多其他额外的属性，例如 alpha 通道（控制透明度），colorkeys，源矩形剪切等。这些功能主要在一个 Surface 对象上绘制另一个 Surface 对象时发挥作用。 Pygame 在绘制时将会尽可能的尝试硬件加速，否则采用高度优化的绘制方式实现。<br />
+<br />
+Pygame 支持三种透明度类型：colorkeys，surface alphas 和 pixel alphas（小甲鱼温馨提示：colorkeys 是指设置图像中的某个颜色值为透明，surface alphas 是调整整个图像的透明度，pixel alphas 则是独立设置图像中每一个像素的透明度）。surface alphas 可以和 colorkeys 混合使用，而 pixel alphas 不能和其他两个混合。<br />
+<br />
+小甲鱼温馨提示：<br />
+<br />
+<ul><li>colorkeys 是设置图像中的某个颜色值为透明（任何像素的颜色值只要跟 colorkeys 的值相同即被设置为透明）；<li>surface alphas 是调整整个图像的透明度，范围是 0 ~ 255（0 表示完全透明，255 表示完全不透明）；<li>pixel alphas 是为图像中的每个像素设置一个独立的值，用于存放该像素的透明度。这是最精确的透明度设置，但也是最慢的。<br />
+</ul><br />
+Surface 对象支持像素访问。像素访问在硬件上实现的速度是很慢的，也不推荐大家这么做（小甲鱼：但任性的 Pygame 还是提供了访问的途径……）。可以使用 get_at() 和 set_at() 方法获取和设置像素。简单的使用它们来访问某些像素是可以的，但如果用它们来进行所有的像素访问操作就会变得相当缓慢。<br />
+<br />
+如果你打算做很多像素级别的操作，那么还是建议你使用 <a href="http://bbs.fishc.com/thread-62183-1-1.html" target="_blank">PixelArray</a> 模块的方法，因为它提供了类似数组的方式来访问 Surface 对象上的像素。对于涉及数学运算的范围，建议使用 <a href="http://bbs.fishc.com/thread-62191-1-2.html" target="_blank">surfarray</a> 模块，这个模块主要用于数学运算，因此速度很快，但需要 Numpy 模块的支持（小甲鱼温馨提示，NumPy 下载地址：<a href="https://pypi.python.org/pypi/numpy/#downloads" target="_blank">https://pypi.python.org/pypi/numpy/#downloads</a>）<br />
+<br />
+任何函数如果需要访问 Surface 对象，需要将 Surface 先 lock()。这些函数可以独立 lock() 和 unlock() Surface 对象。但如果这些函数多次调用，就会有很多额外的上锁和解锁操作。最好的方法是在调用前先手动上锁，然后再完成所有调用后再手动解锁。所有需要锁定 Surface 对象的函数都在它们的文档中有仔细说明。一般情况下，完成函数的调用后要记得解锁哦^_^<br />
+<br />
+Surface 对象内部会将像素的所有颜色重新编码为单一的数字。使用 map_rgb() 和 unmap_rgb() 方法可以手动地进行转换。<br />
+<br />
+Surface 对象也可以引用部分其他 Surface 对象的内容。使用 subsurface() 方法创建即可创建子对象，其中任何 Surface 对象的改变均会影响到其他子对象。<br />
+<br />
+每个 Surface 对象含有一个剪切区域，默认的剪切区域是整个对象表面。如果修改剪切区域，那么所有的绘制操作将只在剪切区域中生效。<br />
+<br />
+<br />
+<font color="SeaGreen"><font size="3"><strong>属性 &amp; 方法详解</strong></font></font><br />
+<br />
+<strong>blit()</strong><br />
+<br />
+将一个图像（Surface 对象）绘制到另一个图像上方。<br />
+<br />
+blit(source, dest, area=None, special_flags = 0) -&gt; Rect<br />
+<br />
+将 source 参数指定的 Surface 对象绘制到该对象上。dest 参数指定绘制的位置，dest 的值可以是 source 的左上角坐标。如果传入一个 <a href="http://bbs.fishc.com/thread-62186-1-1.html" target="_blank">Rect</a> 对象给 dest，那么 blit() 会使用它的左上角坐标，而不关 <a href="http://bbs.fishc.com/thread-62186-1-1.html" target="_blank">Rect</a> 的大小什么事~_~<br />
+<br />
+可选参数 area 是一个 <a href="http://bbs.fishc.com/thread-62186-1-1.html" target="_blank">Rect</a> 对象，表示限定 source 指定的 Surface 对象的范围。<br />
+<br />
+可选参数 special_flags 是 Pygame 1.8.0 新增的内容，用于指定混合的模式：BLEND_ADD，BLEND_SUB，BLEND_MULT，BLEND_MIN，BLEND_MAX；1.8.1 增加：BLEND_RGBA_ADD，BLEND_RGBA_SUB，BLEND_RGBA_MULT，BLEND_RGBA_MIN，BLEND_RGBA_MAX，BLEND_RGB_ADD，BLEND_RGB_SUB, BLEND_RGB_MULT，BLEND_RGB_MIN，BLEND_RGB_MAX；将来还可能添加更多新的标志。<br />
+<br />
+返回值是一个 <a href="http://bbs.fishc.com/thread-62186-1-1.html" target="_blank">Rect</a> 对象，表示实际绘制的矩形区域。<br />
+<br />
+注意1：当绘制到一个 8 位的 Surface 对象上时，pixel alphas 会被忽略。<br />
+<br />
+注意2：通过 colorkeys 和 surface alphas 设置透明度的 Surface 对象，通过 blit() 绘制自身可能会导致颜色有少许不同。<br />
+<br />
+<br />
+<strong>convert()</strong><br />
+<br />
+修改图像（Surface 对象）的像素格式。<br />
+<br />
+convert(Surface) -&gt; Surface<br />
+<br />
+convert(depth, flags=0) -&gt; Surface<br />
+<br />
+convert(masks, flags=0) -&gt; Surface<br />
+<br />
+convert() -&gt; Surface<br />
+<br />
+创建一个新的 Surface 对象并返回，可以定制该对象的像素格式。新的像素格式可以从其他已存在的 Surface 对象中获取。另外，depth，flags，masks 参数的使用跟调用 Surface() 相似。<br />
+<br />
+如果没有传入任何参数，那么创建一个相同像素格式的 Surface 对象。<br />
+<br />
+如果原来包含 alpha 通道（小甲鱼温馨提示：即 pixel alphas，见前边讲的透明度控制部分）的 Surface 对象，那么转换后（新创建）的 Surface 对象将不会保留。如果需要保留 alpha 通道，请使用 convert_alpha() 方法。<br />
+<br />
+注意：为了让 pygame 可以更快的处理图像绘制，请加载一个图像（不带透明）后立刻使用 convert() 对其像素格式进行转换。<br />
+<br />
+<br />
+<strong>convert_alpha()</strong><br />
+<br />
+修改图像（Surface 对象）的像素格式，包含 alpha 通道（小甲鱼温馨提示：即 pixel alphas，见前边讲的透明度控制部分）。<br />
+<br />
+convert_alpha(Surface) -&gt; Surface<br />
+<br />
+convert_alpha() -&gt; Surface<br />
+<br />
+创建一个新的 Surface 对象并返回，可以定制该对象的像素格式。新的像素格式可以从其他已存在的 Surface 对象中获取。另外，depth，flags，masks 参数的使用跟调用 Surface() 相似。<br />
+<br />
+与 convert() 方法不同，convert_alpha() 转换后的 Surface 对象将专门为 alpha 通道做优化，使其可以更快的进行绘制。<br />
+<br />
+注意：为了让 pygame 可以更快的处理图像绘制，请加载一个图像（带透明）后立刻使用 convert_alpha() 对其像素格式进行转换。<br />
+<br />
+<br />
+<strong>copy()</strong><br />
+<br />
+创建一个 Surface 对象的拷贝。<br />
+<br />
+copy() -&gt; Surface<br />
+<br />
+对当前 Surface 对象进行拷贝，返回的 Surface 对象拥有相同的像素格式、调色板和透明度设置。<br />
+<br />
+<br />
+<strong>fill()</strong><br />
+<br />
+使用纯色填充 Surface 对象。<br />
+<br />
+fill(color, rect=None, special_flags=0) -&gt; Rect<br />
+<br />
+默认情况下使用纯色填充整个 Surface 对象。rect 参数可以限制填充的矩形范围，color 参数可以是 RGB 序列、RGBA 序列和映射的颜色索引号。如果使用 RGBA，则只有当 Surface 对象使用 pixel alphas，alpha 通道才会被填充。<br />
+<br />
+可选参数 special_flags 是 Pygame 1.8.0 新增加的内容，用于指定混合的模式：BLEND_ADD，BLEND_SUB，BLEND_MULT，BLEND_MIN，BLEND_MAX；1.8.1 增加：BLEND_RGBA_ADD，BLEND_RGBA_SUB，BLEND_RGBA_MULT，BLEND_RGBA_MIN，BLEND_RGBA_MAX，BLEND_RGB_ADD，BLEND_RGB_SUB, BLEND_RGB_MULT，BLEND_RGB_MIN，BLEND_RGB_MAX；将来还可能添加更多新的标志。<br />
+<br />
+返回值是一个 <a href="http://bbs.fishc.com/thread-62186-1-1.html" target="_blank">Rect</a> 对象，表示实际绘制的矩形区域。<br />
+<br />
+小甲鱼温馨提示：RGB 很多鱼油应该不陌生了，即三原色 R（Red），G（Green）和 B（Blue），它们每个颜色的值为 0 ~ 255，通过不同程度的混合可以得到非常多的其他颜色。RGBA 其实就是在三原色的基础上添加一个 A（alpha）通道，用于控制每个像素的透明度，范围依然是 0 ~ 255。<br />
+<br />
+<br />
+<strong>scroll()</strong><br />
+<br />
+移动 Surface 对象。<br />
+<br />
+scroll(dx=0, dy=0) -&gt; None<br />
+<br />
+dx 和 dy 参数分别控制水平和垂直位置的偏移量，值为正表示向右（向下），为负表示向左（向上）偏移。没有被覆盖的范围则保留原来的像素值。Surface 对象的剪切范围将影响移动后的结果。当 dx 和 dy 参数的值大于 Surface 对象的尺寸，你将看不到移动的结果，但并不会出错。<br />
+<br />
+很多鱼油可能会“想当然的”理解所谓的“移动”就是简单的移动图像到一个新的位置，其实这个方法并不是这样的……<br />
+<br />
+请看，好好的一个 LOGO：<br />
+<br />
+
+<ignore_js_op>
+<style>.guestviewthumb {margin:10px auto; text-align:center;}.guestviewthumb a {font-size:12px;}.guestviewthumb_cur {cursor:url(static/image/common/scf.cur), default; max-width:400px;}.ie6 .guestviewthumb_cur { width:400px !important;}</style>
+<div class="guestviewthumb">
+<div style="margin: 0 auto;">
+<img id="aimg_38083" class="guestviewthumb_cur" aid="38083" src="static/image/common/none.gif" onclick="showWindow('login', 'member.php?mod=logging&action=login'+'&referer='+encodeURIComponent(location))" onerror="javascript:if(this.getAttribute('makefile')){this.src=this.getAttribute('makefile'); this.removeAttribute('makefile');}" file="https://fishc.com.cn/data/attachment/image/000/03/80/83_400_300.jpg" makefile="forum.php?mod=image&aid=38083&size=400x300&key=20225b82deb656ca&type=1" inpost="1" alt="b_scroll.png" title="b_scroll.png"/>
+<br>
+<a href="member.php?mod=logging&amp;action=login" onclick="showWindow('login', this.href+'&referer='+encodeURIComponent(location));">登录/注册后可看大图</a>
+</div>
+</div>
+
+<div class="tip tip_4 aimg_tip" id="aimg_38083_menu" style="position: absolute; display: none" disautofocus="true">
+<div class="xs0">
+<p><strong>b_scroll.png</strong> <em class="xg1">(30.71 KB, 下载次数: 5)</em></p>
+<p>
+<a href="https://fishc.com.cn/forum.php?mod=attachment&amp;aid=MzgwODN8MTYzNGM4OGJ8MTU1NTQxOTAyNHwwfDYyMTkw&amp;nothumb=yes" target="_blank">下载附件</a>
+
+&nbsp;<a href="javascript:;" onclick="showWindow(this.id, this.getAttribute('url'), 'get', 0);" id="savephoto_38083" url="home.php?mod=spacecp&amp;ac=album&amp;op=saveforumphoto&amp;aid=38083&amp;handlekey=savephoto_38083">保存到相册</a>
+
+</p>
+
+<p class="xg1 y">2015-8-10 16:03 上传</p>
+
+</div>
+</div>
+
+</ignore_js_op>
+<br />
+<br />
+向右、向下移动 20 像素 2 次后的结果：<br />
+<br />
+
+<ignore_js_op>
+
+<div class="guestviewthumb">
+<div style="margin: 0 auto;">
+<img id="aimg_38084" class="guestviewthumb_cur" aid="38084" src="static/image/common/none.gif" onclick="showWindow('login', 'member.php?mod=logging&action=login'+'&referer='+encodeURIComponent(location))" onerror="javascript:if(this.getAttribute('makefile')){this.src=this.getAttribute('makefile'); this.removeAttribute('makefile');}" file="https://fishc.com.cn/data/attachment/image/000/03/80/84_400_300.jpg" makefile="forum.php?mod=image&aid=38084&size=400x300&key=73e6bd827167ba77&type=1" inpost="1" alt="a_scroll.png" title="a_scroll.png"/>
+<br>
+<a href="member.php?mod=logging&amp;action=login" onclick="showWindow('login', this.href+'&referer='+encodeURIComponent(location));">登录/注册后可看大图</a>
+</div>
+</div>
+
+<div class="tip tip_4 aimg_tip" id="aimg_38084_menu" style="position: absolute; display: none" disautofocus="true">
+<div class="xs0">
+<p><strong>a_scroll.png</strong> <em class="xg1">(17.31 KB, 下载次数: 1)</em></p>
+<p>
+<a href="https://fishc.com.cn/forum.php?mod=attachment&amp;aid=MzgwODR8NDkxNzlhNjF8MTU1NTQxOTAyNHwwfDYyMTkw&amp;nothumb=yes" target="_blank">下载附件</a>
+
+&nbsp;<a href="javascript:;" onclick="showWindow(this.id, this.getAttribute('url'), 'get', 0);" id="savephoto_38084" url="home.php?mod=spacecp&amp;ac=album&amp;op=saveforumphoto&amp;aid=38084&amp;handlekey=savephoto_38084">保存到相册</a>
+
+</p>
+
+<p class="xg1 y">2015-8-10 16:03 上传</p>
+
+</div>
+</div>
+
+</ignore_js_op>
+<br />
+<br />
+<br />
+<strong>set_colorkey()</strong><br />
+<br />
+设置 colorkeys。<br />
+<br />
+set_colorkey(Color, flags=0) -&gt; None<br />
+<br />
+set_colorkey(None) -&gt; None<br />
+<br />
+设置当前 Surface 对象的 colorkeys，当绘制 Surface 对象时，将所有与 colorkeys 相同的颜色值绘制为透明。 Color 参数可以是 RGB 颜色，也可以是映射后的颜色索引号，如果传入 None，则取消 colorkeys 的设置。<br />
+<br />
+如果 Surface 对象使用的是 pixel alphas 的方式设置透明度，那么 colorkeys 会被忽略（二者不能兼容）；如果 Surface 对象使用 surface alphas 方式设置透明度，那么二者可以混合设置。<br />
+<br />
+可选参数 flags 可以设置为 pygame.RLEACCEL，提供非加速显示的情况下更好的性能。修改一个设置了 RLEACCEL 的 Surface 对象会变慢一些，但绘制到其他 Surface 对象上时会更快。<br />
+<br />
+<br />
+<strong>get_colorkey()</strong><br />
+<br />
+获取当前的 colorkeys。<br />
+<br />
+get_colorkey() -&gt; RGB or None<br />
+<br />
+返回 Surface 对象当前 colorkeys 的颜色值，如果没有设置 colorkeys，则返回 None。<br />
+<br />
+<br />
+<strong>set_alpha()</strong><br />
+<br />
+设置整个图像的透明度。<br />
+<br />
+set_alpha(value, flags=0) -&gt; None<br />
+<br />
+set_alpha(None) -&gt; None<br />
+<br />
+设置 Surface 对象的整体透明度（surface alpha），value 参数的范围是 0 ~ 255，0 表示完全透明，255 表示完全不透明。如果传入 None，那么取消 surface alphas 设置。<br />
+<br />
+如果 Surface 对象使用的是 pixel alphas 的方式设置透明度，那么 surface alphas 会被忽略（二者不能兼容）；如果 Surface 对象使用 colorkeys 方式设置透明度，那么二者可以混合设置。<br />
+<br />
+可选参数 flags 可以设置为 pygame.RLEACCEL，提供非加速显示的情况下更好的性能。修改一个设置了 RLEACCEL 的 Surface 对象会变慢一些，但绘制到其他 Surface 对象上时会更快。<br />
+<br />
+注意：如果参数传入 None，pixel alphas 设置透明度的方式也会失效。<br />
+<br />
+<br />
+<strong>get_alpha()</strong><br />
+<br />
+获取整个图像的透明度。<br />
+<br />
+get_alpha() -&gt; int_value or None<br />
+<br />
+返回 Surface 对象当前的整体透明度，如果没有设置 surface alpha，则返回 None。<br />
+<br />
+<br />
+<strong>lock()</strong><br />
+<br />
+锁定 Surface 对象的内存使其可以进行像素访问。<br />
+<br />
+lock() -&gt; None<br />
+<br />
+锁定 Surface 的像素数据使得其可以访问。对于加速的 Surface 对象，像素数据可能存储在显存中或以非线性压缩的形式存储。当一个 Surface 对象锁定了像素内存，常规软件就可以对它进行访问。对 Surface 对象进行读取或写入需要将其先锁定。<br />
+<br />
+一般情况下，不应该将 Surface 对象长期保持锁定状态。因为一旦 Surface 对象被锁定，常常无法进行绘制或者导致 Pygame 无法对其进行管理。<br />
+<br />
+另外，并不是所有的 Surface 对象都需要锁定后才能访问。mustlock() 方法可以检测一个 Surface 对象是否确实需要锁定。对于有必要进行锁定和解锁的 Surface 对象，该过程并不会导致任何性能下降。<br />
+<br />
+所有的 Pygame 函数在需要的时候都会自动锁定和解锁 Surface 对象。如果有部分代码需要反复锁定和解锁 Surface 对象很多次，那么将锁定和解锁这对操作封装成独立的块也是很有用的（小甲鱼温馨提示：就像文件操作的打开和关闭）。<br />
+<br />
+嵌套的锁定和解锁是安全的，Surface 对象会在最终的锁定被解除的时候解锁。<br />
+<br />
+<br />
+<strong>unlock()</strong><br />
+<br />
+解锁 Surface 对象的内存使其无法进行像素访问。<br />
+<br />
+unlock() -&gt; None<br />
+<br />
+解锁已经锁定的 Surface 对象。解锁后的 Surface 对象才能再一次被绘制和被 Pygame 进行管理。<br />
+<br />
+所有的 Pygame 函数在需要的时候都会自动锁定和解锁 Surface 对象。如果有部分代码需要反复锁定和解锁 Surface 对象很多次，那么将锁定和解锁这对操作封装成独立的块也是很有用的（小甲鱼温馨提示：就像文件操作的打开和关闭）。<br />
+<br />
+嵌套的锁定和解锁是安全的，Surface 对象会在最终的锁定被解除的时候解锁。<br />
+<br />
+<br />
+<strong>mustlock()</strong><br />
+<br />
+检测该 Surface 对象是否需要被锁定。<br />
+<br />
+mustlock() -&gt; bool<br />
+<br />
+如果返回 True，说明该 Surface 对象需要被锁定才能访问像素数据。通常，纯软件的 Surface 对象不需要锁定。为了快捷安全地确认需要锁定的所有 Surface 对象，该方法是必要的。<br />
+<br />
+所有的 Pygame 函数在需要的时候都会自动锁定和解锁 Surface 对象。如果有部分代码需要反复锁定和解锁 Surface 对象很多次，那么将锁定和解锁这对操作封装成独立的块也是很有用的（小甲鱼温馨提示：就像文件操作的打开和关闭）。<br />
+<br />
+<br />
+<strong>get_locked()</strong><br />
+<br />
+检测该 Surface 对象当前是否为锁定状态。<br />
+<br />
+get_locked() -&gt; bool<br />
+<br />
+当该 Surface 对象被锁定时（无论被重复锁定多少次），返回 True。<br />
+<br />
+<br />
+<strong>get_locks()</strong><br />
+<br />
+返回该 Surface 对象的锁定。<br />
+<br />
+get_locks() -&gt; tuple<br />
+<br />
+返回该 Surface 对象当前存在的锁定。<br />
+<br />
+<br />
+<strong>get_at()</strong><br />
+<br />
+获取一个像素的颜色值。<br />
+<br />
+get_at((x, y)) -&gt; Color<br />
+<br />
+返回指定像素点的 RGBA 颜色值。如果 Surface 对象的每个像素没有包含 alpha 通道，那么 alpha（A）的值将永远是 255（不透明）。如果指定像素的位置超出 Surface 对象的范围，将抛出 IndexError 异常。<br />
+<br />
+在游戏或实时环境中，同时获取和设置多个像素会拖慢速度。更好的方法是使用一次性操作多个像素的方法，例如 blit()，fill() 和 draw() 方法，亦或者使用 surfarray / PixelArray 模块。<br />
+<br />
+该函数会根据需求临时锁定和解锁 Surface 对象。<br />
+<br />
+注意：Pygame 1.9.0 之前该函数是返回一个元祖，此后是返回一个 Color 对象。如果需要得到一个元祖，可以使用 tuple(surf.get_at((x,y))) 进行转换（一般只有在需要将颜色作为字典的键时，你才需要这么做）。<br />
+<br />
+<br />
+<strong>set_at()</strong><br />
+<br />
+设置一个像素的颜色值。<br />
+<br />
+set_at((x, y), Color) -&gt; None<br />
+<br />
+设置指定像素点的颜色值，Color 参数可以使 RGBA 值，也可以是映射的颜色索引号。如果 Surface 对象的每个像素没有包含 alpha 通道，那么 alpha（A）的值将被忽略。如果指定像素的位置超出 Surface 对象的范围或剪切区域，那么该设置并不会生效。<br />
+<br />
+在游戏或实时环境中，同时获取和设置多个像素会拖慢速度。<br />
+<br />
+该函数会根据需求临时锁定和解锁 Surface 对象。<br />
+<br />
+<br />
+<strong>get_at_mapped()</strong><br />
+<br />
+获取一个像素映射的颜色索引号。<br />
+<br />
+get_at_mapped((x, y)) -&gt; Color<br />
+<br />
+返回指定像素点映射的颜色索引号。如果指定像素的位置超出 Surface 对象的范围，将抛出 IndexError 异常。<br />
+<br />
+该方法仅适用于 Pygame 的单元测试，不大适合在正式的应用程序中使用。<br />
+<br />
+该函数会根据需求临时锁定和解锁 Surface 对象。<br />
+<br />
+Pygame 1.9.2 新增加的。<br />
+<br />
+<br />
+<strong>get_palette()</strong><br />
+<br />
+获取 Surface 对象 8 位索引的调色板。<br />
+<br />
+get_palette() -&gt; [RGB, RGB, RGB, ...]<br />
+<br />
+返回一个最多包含 Surface 对象映射的 256 种颜色的列表，事实上返回的列表就是调色板的拷贝，因此这个列表的修改并不会影响到 Surface 对象本身。<br />
+<br />
+注意：Pygame 1.9.0 以后，返回值是一个包含 Color（长度为 3）对象的列表；在此之前，每个 RGB 元素是以元祖来表示的。<br />
+<br />
+<br />
+<strong>get_palette_at()</strong><br />
+<br />
+返回给定索引号在调色板中的颜色值。<br />
+<br />
+get_palette_at(index) -&gt; RGB<br />
+<br />
+返回 index 参数在调色板中的颜色值，index 参数的取值范围是 0 ~ 255（8 位索引号）。<br />
+<br />
+注意：Pygame 1.9.0 以后，返回值是一个包含 Color（长度为 3）对象；在此之前，是以元祖来表示 RGB 颜色值的。<br />
+<br />
+<br />
+<strong>set_palette()</strong><br />
+<br />
+设置 Surface 对象 8 位索引的调色板。<br />
+<br />
+set_palette([RGB, RGB, RGB, ...]) -&gt; None<br />
+<br />
+设置 Surface 对象整个 8 位索引的调色板。该方法将会替换原有的调色板。<br />
+<br />
+该函数将不会影响每个像素超过 8 位的 Surface 对象。<br />
+<br />
+<br />
+<strong>set_palette_at()</strong><br />
+<br />
+设置给定索引号在调色板中的颜色值。<br />
+<br />
+set_palette_at(index, RGB) -&gt; None<br />
+<br />
+设置 index 参数在调色板中的颜色值，index 参数的取值范围是 0 ~ 255（8 位索引号）。<br />
+<br />
+该函数将不会影响每个像素超过 8 位的 Surface 对象。<br />
+<br />
+<br />
+<strong>map_rgb()</strong><br />
+<br />
+将一个 RGBA 颜色转换为映射的颜色值。<br />
+<br />
+map_rgb(Color) -&gt; mapped_int<br />
+<br />
+将一个 RGBA 颜色转换为该 Surface 对象映射的颜色值。返回值不会大于 Surface 对象的位深度。Pygame 常常不会使用这个映射的颜色值，但它可以用于传递给那些需要一个 Surface 对象以及其颜色的函数。<br />
+<br />
+<br />
+<strong>unmap_rgb()</strong><br />
+<br />
+将一个映射的颜色值转换为 Color 对象。<br />
+<br />
+unmap_rgb(mapped_int) -&gt; Color<br />
+<br />
+将一个映射的颜色值转换为该 Surface 对象的 RGB 颜色。返回值不会大于 Surface 对象的位深度。Pygame 常常不会使用这个映射的颜色值，但它可以用于传递给那些需要一个 Surface 对象以及其颜色的函数。<br />
+<br />
+<br />
+<strong>set_clip()</strong><br />
+<br />
+设置该 Surface 对象的当前剪切区域。<br />
+<br />
+set_clip(rect) -&gt; None<br />
+<br />
+set_clip(None) -&gt; None<br />
+<br />
+每个 Surface 对象拥有一个活跃的剪切区域。剪切区域是指 Surface 对象上的一个限定矩形，只有该矩形内的像素才可以被修改。如果传入 None，表示剪切区域覆盖整个 Surface 对象。<br />
+<br />
+剪切区域受限于 Surface 对象本身。如果剪切区域过大，那么将被缩小到匹配 Surface 对象的范围。<br />
+<br />
+<br />
+<strong>get_clip()</strong><br />
+<br />
+获取该 Surface 对象的当前剪切区域。<br />
+<br />
+get_clip() -&gt; Rect<br />
+<br />
+返回该 Surface 对象的当前剪切区域，用一个 <a href="http://bbs.fishc.com/thread-62186-1-1.html" target="_blank">Rect</a> 对象来描述。Surface 对象返回的限定矩形永远不会超出图像的边界。<br />
+<br />
+如果该 Surface 对象没有设置剪切区域，那么将返回整个图像那么大的限定矩形。<br />
+<br />
+<br />
+<strong>subsurface()</strong><br />
+<br />
+根据父对象创建一个新的子 Surface 对象。<br />
+<br />
+subsurface(Rect) -&gt; Surface<br />
+<br />
+返回一个子 Surface 对象，它将与父对象共享所有的像素。修改子对象或父对象任一的像素均会影响到彼此，Surface 对象的信息像剪切区域，color keys 都是相同的。<br />
+<br />
+新的子对象将从它的父对象中继承调色板、color keys 和 alpha 通道的设置。<br />
+<br />
+存在多个子 Surface 对象以及子子 Surface 对象（subsubsurface）均是可以的。在显示模式不是硬件加速状态时，也是支持子 Surface 对象的。<br />
+<br />
+更多有关子 Surface 对象的内容请查看：get_offset() 和 get_parent() 方法。<br />
+<br />
+<br />
+<strong>get_parent()</strong><br />
+<br />
+获取子 Surface 对象的父对象。<br />
+<br />
+get_parent() -&gt; Surface<br />
+<br />
+返回子 Surface 对象的父对象，如果不存在父对象，则返回 None。<br />
+<br />
+<br />
+<strong>get_abs_parent()</strong><br />
+<br />
+获取子 Surface 对象的顶层父对象。<br />
+<br />
+get_abs_parent() -&gt; Surface<br />
+<br />
+返回子 Surface 对象的父对象，如果不存在父对象，则返回该 Surface 对象本身（如果没有父对象，本身及顶层父对象）。<br />
+<br />
+<br />
+<strong>get_offset()</strong><br />
+<br />
+获取子 Surface 对象在父对象中的偏移位置。<br />
+<br />
+get_offset() -&gt; (x, y)<br />
+<br />
+获取子 Surface 对象在父对象中的偏移位置。如果该 Surface 对象不是子对象，则返回 (0, 0)。<br />
+<br />
+<br />
+<strong>get_abs_offset()</strong><br />
+<br />
+获取子 Surface 对象在顶层父对象中的偏移位置。<br />
+<br />
+get_abs_offset() -&gt; (x, y)<br />
+<br />
+获取子 Surface 对象在顶层父对象中的偏移位置。如果该 Surface 对象不是子对象，则返回 (0, 0)。<br />
+<br />
+<br />
+<strong>get_size()</strong><br />
+<br />
+获取 Surface 对象的尺寸。<br />
+<br />
+get_size() -&gt; (width, height)<br />
+<br />
+返回 Surface 对象的宽度和高度，以像素为单位。<br />
+<br />
+<br />
+<strong>get_width()</strong><br />
+<br />
+获取 Surface 对象的宽度。<br />
+<br />
+get_width() -&gt; width<br />
+<br />
+返回 Surface 对象的宽度，以像素为单位。<br />
+<br />
+<br />
+<strong>get_height()</strong><br />
+<br />
+获取 Surface 对象的宽度。<br />
+<br />
+get_height() -&gt; height<br />
+<br />
+返回 Surface 对象的高度，以像素为单位。<br />
+<br />
+<br />
+<strong>get_rect()</strong><br />
+<br />
+获取 Surface 对象的矩形区域。<br />
+<br />
+get_rect(**kwargs) -&gt; Rect<br />
+<br />
+返回一个 <a href="http://bbs.fishc.com/thread-62186-1-1.html" target="_blank">Rect</a> 对象表示该 Surface 对象的矩形区域。该矩形对象（<a href="http://bbs.fishc.com/thread-62186-1-1.html" target="_blank">Rect</a>）总是以 (0, 0) 为起点，width 和 height 为图像的尺寸。<br />
+<br />
+你可以给该函数传递关键字参数，返回的结果将受参数的影响。<br />
+<br />
+例如：<br />
+<div class="blockcode"><div id="code_C71"><ol><li>……<br />
+<li># 图像的尺寸为 100 * 100<br />
+<li>image = pygame.image.load(&quot;fishc.png&quot;).convert_alpha()<br />
+<li><br />
+<li>print(image.get_rect())<br />
+<li>print(image.get_rect(center=(20, 20)))<br />
+<li>print(image.get_rect())<br />
+<li>……</ol></div><em onclick="copycode($('code_C71'));">复制代码</em></div><br />
+打印的结果是：<br />
+<div class="blockcode"><div id="code_hao"><ol><li>&gt;&gt;&gt; <br />
+<li>&lt;rect(0, 0, 100, 100)&gt;<br />
+<li>&lt;rect(-30, -30, 100, 100)&gt;<br />
+<li>&lt;rect(0, 0, 100, 100)&gt;</ol></div><em onclick="copycode($('code_hao'));">复制代码</em></div><br />
+
+<br />
+<strong>get_bitsize()</strong><br />
+<br />
+获取 Surface 对象像素格式的位深度。<br />
+<br />
+get_bitsize() -&gt; int<br />
+<br />
+返回该 Surface 对象中每个像素用多少位来表示。该值可能不会完全与每个像素所使用的字节数相同。例如一个 15 位深度的 Surface 对象依然需要 2 个字节来存放。<br />
+<br />
+<br />
+<strong>get_bytesize()</strong><br />
+<br />
+获取 Surface 对象每个像素使用的字节数。<br />
+<br />
+get_bytesize() -&gt; int<br />
+<br />
+返回 Surface 对象每个像素使用的字节数。<br />
+<br />
+<br />
+<strong>get_flags()</strong><br />
+<br />
+获取 Surface 对象的附加标志。<br />
+<br />
+get_flags() -&gt; int<br />
+<br />
+返回当前 Surface 对象的特征。每个特征都是一个位掩码标志。典型标志有 HWSURFACE，RLEACCEL，SRCALPHA 和 SRCCOLORKEY。<br />
+<br />
+下边是一个相对比较全面的标志列表，全部标志可在 SDL_video.h 文件中找到。<br />
+<br />
+<table cellspacing="0" class="t_table" style="width:98%"><tr><td>SWSURFACE</td><td> 0x00000000</td><td> 将创建出来的 Surface 对象存放于内存中</td></tr><tr><td> HWSURFACE</td><td> 0x00000001</td><td> 将创建出来的 Surface 对象存放于显存中</td></tr><tr><td> ASYNCBLIT</td><td> 0x00000004</td><td> 使用异步绘制（如果可能的话）</td></tr></table><br />
+以下标志 <a href="http://bbs.fishc.com/thread-62164-1-1.html" target="_blank">display</a> 模块的 set_mode() 方法适用：<br />
+<br />
+<table cellspacing="0" class="t_table" style="width:98%"><tr><td> ANYFORMAT</td><td> 0x10000000</td><td> 显存中可以是深度格式或者是像素格式</td></tr><tr><td> HWPALETTE</td><td> 0x20000000</td><td> 该 Surface 对象独占一个调色板</td></tr><tr><td> DOUBLEBUF</td><td> 0x40000000</td><td> 双缓冲模式</td></tr><tr><td> FULLSCREEN</td><td> 0x80000000</td><td> 全屏显示</td></tr><tr><td> OPENGL</td><td> 0x00000002</td><td> 创建一个 OpenGL 渲染的环境</td></tr><tr><td> OPENGLBLIT</td><td> 0x0000000A</td><td> 创建一个 OpenGL 渲染的环境并用于绘制（过时）</td></tr><tr><td> RESIZABLE</td><td> 0x00000010</td><td> 允许调整尺寸</td></tr><tr><td> NOFRAME</td><td> 0x00000020</td><td> 不显示窗口标题栏和边框</td></tr></table><br />
+内部使用（只读）：<br />
+<br />
+<table cellspacing="0" class="t_table" style="width:98%"><tr><td> HWACCEL</td><td> 0x00000100</td><td> 使用硬件加速绘制</td></tr><tr><td> SRCCOLORKEY</td><td> 0x00001000</td><td> 使用源 color key 绘制</td></tr><tr><td> RLEACCELOK</td><td> 0x00002000</td><td> 私有标志</td></tr><tr><td> RLEACCEL</td><td> 0x00004000</td><td> 使用 RLE 编码 Surface 对象</td></tr><tr><td> SRCALPHA</td><td> 0x00010000</td><td> 使用源 alpha 混合绘制</td></tr><tr><td> PREALLOC</td><td> 0x01000000</td><td> 使用预分配内存</td></tr></table><br />
+<br />
+<strong>get_pitch()</strong><br />
+<br />
+获取 Surface 对象每行占用的字节数。<br />
+<br />
+get_pitch() -&gt; int<br />
+<br />
+返回该 Surface 对象每行占用的字节数，存放在显存中的 Surface 对象并不总是线性填充。子 Surface 对象会比实际拥有更大的间距。<br />
+该方法不适用于通常的 Pygame 开发。<br />
+<br />
+<br />
+<strong>get_masks()</strong><br />
+<br />
+获取用于颜色与映射索引号之间转换的掩码。<br />
+<br />
+get_masks() -&gt; (R, G, B, A)<br />
+<br />
+返回一个掩码，用于在颜色和映射索引号之间进行转换。<br />
+<br />
+<br />
+<strong>set_masks()</strong><br />
+<br />
+设置用于颜色与映射索引号之间转换的掩码。<br />
+<br />
+set_masks((r,g,b,a)) -&gt; None<br />
+<br />
+Pygame 1.8.1 新增加的，该方法不适用于通常的 Pygame 开发。<br />
+<br />
+<br />
+<strong>get_shifts()</strong><br />
+<br />
+获取当位移动时在颜色与映射索引号之间转换的掩码。<br />
+<br />
+get_shifts() -&gt; (R, G, B, A)<br />
+<br />
+返回当像素移动时在颜色与映射索引号之间转换的掩码。<br />
+<br />
+该方法不适用于通常的 Pygame 开发。<br />
+<br />
+<br />
+<strong>set_shifts()</strong><br />
+<br />
+设置当位移动时在颜色与映射索引号之间转换的掩码。<br />
+<br />
+set_shifts((r,g,b,a)) -&gt; None<br />
+<br />
+Pygame 1.8.1 新增加的，该方法不适用于通常的 Pygame 开发。<br />
+<br />
+<br />
+<strong>get_losses()</strong><br />
+<br />
+获取最低有效位在颜色与映射索引号之间转换的掩码。<br />
+<br />
+get_losses() -&gt; (R, G, B, A)<br />
+<br />
+返回最低有效位在颜色与映射索引号之间转换的掩码。<br />
+<br />
+该方法不适用于通常的 Pygame 开发。<br />
+<br />
+<br />
+<strong>get_bounding_rect()</strong><br />
+<br />
+获取最小包含所有数据的 <a href="http://bbs.fishc.com/thread-62186-1-1.html" target="_blank">Rect</a> 对象。<br />
+<br />
+get_bounding_rect(min_alpha = 1) -&gt; Rect<br />
+<br />
+返回一个包含整个 Surface 对象所有的像素并且 alpha 值大于等于平均 alpha 值的最小矩形区域。<br />
+<br />
+Pygame 1.8.1 新增加的。<br />
+<br />
+<br />
+<strong>get_view()</strong><br />
+<br />
+获取 Surface 对象的像素缓冲区视图。<br />
+<br />
+get_view(&lt;kind&gt;=‘2’) -&gt; BufferProxy<br />
+<br />
+返回一个 <a href="http://bbs.fishc.com/thread-62158-1-1.html" target="_blank">BufferProxy</a> 对象，它用 C 级别的数组结构输出 Surface 对象内部的像素缓冲区，Python 级别的数组或 C 级别的缓冲区作为接口。输出的像素缓冲区是可写的。新的缓冲区协议支持 Python 2.6 以上和 CPython。旧的缓冲区协议也支持 Python 2.x。旧的缓冲区数据是由一个 &lt;kind&gt;='0' 及多个其他缓冲区视图构成。<br />
+<br />
+kind 参数是一个字节的字符串：'0'，'1'，'2'，'3'，'r'，'g'，'b' 或 'a'。字母不区分大小写，因此 'A' 也是可以的。参数可以是 Unicode 或 byte 字符串。默认值是 '2'。<br />
+<br />
+'0' 返回一个连续的非结构化字节的视图。没有给出 Surface 对象形状的信息。如果 Surface 对象的像素是不连续的，将抛出 ValueError 异常。<br />
+<br />
+'1' 返回一个连续像素的数组（宽 * 高）。如果 Surface 对象的像素是不连续的，将抛出 ValueError 异常。<br />
+<br />
+'2' 返回一个原始像素的数组（宽，高）。Surface 对象的像素是字节尺寸的无符号整数。像素格式是由 Surface 对象指定。与其他的 Pygame 函数大相庭径，24 位的 Surface 对象用 3 个无符号整数表示。<br />
+<br />
+'3' 返回一个由 RGB 组成的数组（宽，高，3）。红、绿、蓝每个组成颜色均是一个无符号字节。只有 24 位和 32 位的 Surface 对象支持。像素的颜色组合必须是 RGB 或 BGR 顺序。<br />
+<br />
+'r' 表示红色，'g' 表示绿色，'b' 表示蓝色，'a' 表示 alpha 通道。这几个表示返回 Surface 对象的单一颜色视图（宽，高）。颜色组合都是无符号字节。只有 24 位 和 32 位的 Surface 对象支持 'r'，'g' 和 'b'，只有带有 SRCALPHA 标志的 Surface 对象支持 'a'。<br />
+<br />
+只有当输出接口被访问时，该 Surface 对象是锁定的。对于访问新的缓冲区接口，一旦最后的缓冲区视图被释放，该 Surface 对象即解锁。对于访问数组接口和旧的缓冲区接口，该 Surface 对象保持锁定直到 <a href="http://bbs.fishc.com/thread-62158-1-1.html" target="_blank">BufferProxy</a> 对象被释放。<br />
+<br />
+Pygame 1.9.2 新增加的。<br />
+<br />
+<br />
+<strong>get_buffer()</strong><br />
+<br />
+获取 Surface 对象的像素缓冲区对象。<br />
+<br />
+get_buffer() -&gt; BufferProxy<br />
+<br />
+返回一个 <a href="http://bbs.fishc.com/thread-62158-1-1.html" target="_blank">BufferProxy</a> 的缓冲区对象，用于表示 Surface 对象的像素。该缓冲区对象可以被直接访问和操作。Surface 对象的像素数据被表示为非结构化的块保存，拥有一个开始地址和长度描述。数据不需要连续，任何间隔均会被计算入长度中，但在其他方面中忽略。<br />
+<br />
+该方法隐式地锁定 Surface 对象。当 BufferProxy 对象被释放时将会解锁。<br />
+<br />
+Pygame 1.8 新增加的。<br />
+<br />
+<br />
+<strong>_pixels_address</strong><br />
+<br />
+像素缓冲区地址。<br />
+<br />
+_pixels_address -&gt; int<br />
+<br />
+该 Surface 对象原始像素的字节起始地址。<br />
+<br />
+Pygame 1.9.2 新增加的。<br />
+<br />
+<br />
+</td></tr></table>
+
+
+</div>
+<div id="comment_2366597" class="cm">
+</div>
+
+<div id="post_rate_div_2366597"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div id="p_btn" class="mtw mbm hm cl">
+<div class="tshare cl">
+<b>分享到:&nbsp;</b>
+
+<a href="javascript:;" onclick="showWindow('wechat_share', 'plugin.php?id=wechat:qrcode&threadqr=62190&access=yes&share=yes')"><i><img src="source/plugin/wechat/image/share.png" alt="微信" />微信</i></a>
+
+
+
+</div>
+
+<a href="https://fishc.com.cn/home.php?mod=spacecp&amp;ac=favorite&amp;type=thread&amp;id=62190&amp;formhash=b20f009e" id="k_favorite" onclick="showWindow(this.id, this.href, 'get', 0);" onmouseover="this.title = $('favoritenumber').innerHTML + ' 人收藏'" title="收藏本帖"><i><img src="static/image/common/fav.gif" alt="收藏" />收藏<span id="favoritenumber">22</span></i></a>
+<a class="sharep" href="home.php?mod=spacecp&amp;ac=share&amp;type=thread&amp;id=62190" onclick="showWindow('sharethread', this.href, 'get', 0);" title="分享推精华"><i><img src="static/image/common/oshr.png" alt="分享" />分享</i></a>
+<a href="https://fishc.com.cn/forum.php?mod=collection&amp;action=edit&amp;op=addthread&amp;tid=62190" id="k_collect" onclick="showWindow(this.id, this.href);return false;" onmouseover="this.title = $('collectionnumber').innerHTML + ' 人淘帖'" title="淘好帖进专辑"><i><img src="static/image/common/collection.png" alt="分享" />淘帖<span id="collectionnumber" style="display:none">0</span></i></a>
+<a id="recommend_add" href="forum.php?mod=misc&amp;action=recommend&amp;do=add&amp;tid=62190&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = $('recommendv_add').innerHTML + ' 人顶'" title="顶一下"><i><img src="static/image/common/rec_add.gif" alt="顶" />顶<span id="recommendv_add">2</span></i></a>
+<a id="recommend_subtract" href="forum.php?mod=misc&amp;action=recommend&amp;do=subtract&amp;tid=62190&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = $('recommendv_subtract').innerHTML + ' 人踩'" title="踩一下"><i><img src="static/image/common/rec_subtract.gif" alt="踩" />踩<span id="recommendv_subtract" style="display:none">0</span></i></a>
+</div>
+<div class="sign">想知道小甲鱼最近在做啥？请访问 -> <a href="https://ilovefishc.com" target="_blank">ilovefishc.com</a></div>
+<div class="a_pb"><a href="http://bbs.fishc.com/thread-90350-1-1.html" target="_blank" ><b><font color="#FF0000"><p class="MsoNormal">15PB信息安全2018新课改：偏重编程、软件逆向破解、漏洞挖掘与利用、移动端安全等方向，增加相关工作的实战训练！学员毕业就职于大型互联网公司、安全公司。<br></p></font></b></a></div></td>
+</tr>
+<tr id="_postposition2366597"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=243&amp;tid=62190&amp;reppost=2366597&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" onclick="showWindow('miscreport2366597', 'misc.php?mod=report&rtype=post&rid=2366597&tid=62190&fid=243', 'get', -1);return false;">举报</a>
+</p>
+
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+<script type="text/javascript" reload="1">
+aimgcount[2366597] = ['38083','38084'];
+attachimggroup(2366597);
+var aimgfid = 0;
+</script>
+</div><div id="post_2398988" ><table id="pid2398988" class="plhin" summary="pid2398988" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar2398988" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="https://fishc.com.cn/space-uid-219656.html" target="_blank" class="xw1" style="color: #008000">▃黑衣大葛格</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo2398988" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo2398988_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="https://fishc.com.cn/space-uid-219656.html" target="_blank" class="xi2" style="color: #008000">▃黑衣大葛格</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+	<dt>UID</dt><dd><a href="?219656" target="_blank" class="xi2">219656</a></dd>
+	<dt>日志</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=219656&do=blog&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>相册</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=219656&do=album&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>贡献</dt><dd> </dd>
+	<dt>荣誉</dt><dd> </dd>
+	<dt>技术值</dt><dd> </dd>
+</dl>
+<div class="imicn">
+<a href="https://fishc.com.cn/home.php?mod=space&amp;uid=219656&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="https://fishc.com.cn/space-uid-219656.html" class="avtm" target="_blank"><img src="https://fishc.com.cn/ucenter/avatar.php?uid=219656&size=middle" /></a></div>
+</div>
+<dl class="pil cl"><dt><a href="bestanswer.php?mod=user&uid=219656" target="_blank"><font color=red>最佳答案</font></a></dt><dd><a href="bestanswer.php?mod=user&uid=219656" target="_blank"><font color=red>0</font></a>&nbsp; </dd></dl></div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="https://fishc.com.cn/forum.php?mod=redirect&goto=findpost&ptid=62190&pid=2398988"   id="postnum2398988" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>2</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon2398988" src="static/image/common/online_vip.gif" />
+<em id="authorposton2398988">发表于 2015-8-15 00:26:29</em>
+<span class="pipe">|</span>
+<a href="https://fishc.com.cn/forum.php?mod=viewthread&amp;tid=62190&amp;page=1&amp;authorid=219656" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_2398988">
+好长啊</td></tr></table>
+
+
+</div>
+<div id="comment_2398988" class="cm">
+</div>
+
+<div id="post_rate_div_2398988"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div class="sign">想知道小甲鱼最近在做啥？请访问 -> <a href="https://ilovefishc.com" target="_blank">ilovefishc.com</a></div>
+</td>
+</tr>
+<tr id="_postposition2398988"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=243&amp;tid=62190&amp;repquote=2398988&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+<a class="replyadd" href="forum.php?mod=misc&amp;action=postreview&amp;do=support&amp;tid=62190&amp;pid=2398988&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_support_2398988').innerHTML ? $('review_support_2398988').innerHTML : 0) + ' 人 支持'">支持 <span id="review_support_2398988"></span></a>
+<a class="replysubtract" href="forum.php?mod=misc&amp;action=postreview&amp;do=against&amp;tid=62190&amp;pid=2398988&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_against_2398988').innerHTML ? $('review_against_2398988').innerHTML : 0) + ' 人 反对'">反对 <span id="review_against_2398988"></span></a>
+</em>
+
+<p>
+<a href="javascript:;" onclick="showWindow('miscreport2398988', 'misc.php?mod=report&rtype=post&rid=2398988&tid=62190&fid=243', 'get', -1);return false;">举报</a>
+</p>
+
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_2399123" ><table id="pid2399123" class="plhin" summary="pid2399123" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar2399123" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="https://fishc.com.cn/space-uid-9.html" target="_blank" class="xw1" style="color: #00FF7F">小甲鱼</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo2399123" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo2399123_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="https://fishc.com.cn/space-uid-9.html" target="_blank" class="xi2" style="color: #00FF7F">小甲鱼</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+	<dt>UID</dt><dd><a href="?9" target="_blank" class="xi2">9</a></dd>
+	<dt>日志</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=9&do=blog&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>相册</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=9&do=album&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>贡献</dt><dd> </dd>
+	<dt>荣誉</dt><dd> </dd>
+	<dt>技术值</dt><dd> </dd>	
+</dl><div class="imicn">
+<a href="https://fishc.com.cn/home.php?mod=space&amp;uid=9&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="https://fishc.com.cn/space-uid-9.html" class="avtm" target="_blank"><img src="https://fishc.com.cn/ucenter/avatar.php?uid=9&size=middle" /></a></div>
+</div>
+<dl class="pil cl"><dt><a href="bestanswer.php?mod=user&uid=9" target="_blank"><font color=red>最佳答案</font></a></dt><dd><a href="bestanswer.php?mod=user&uid=9" target="_blank"><font color=red>259</font></a>&nbsp; </dd></dl></div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="https://fishc.com.cn/forum.php?mod=redirect&goto=findpost&ptid=62190&pid=2399123"   id="postnum2399123" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>3</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon2399123" src="static/image/common/ico_lz.png" />
+&nbsp;楼主<span class="pipe">|</span>
+<em id="authorposton2399123">发表于 2015-8-15 12:46:55</em>
+<span class="pipe">|</span>
+<a href="https://fishc.com.cn/forum.php?mod=viewthread&amp;tid=62190&amp;page=1&amp;authorid=9" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_2399123">
+<div class="quote"><blockquote><font size="2"><a href="https://fishc.com.cn/forum.php?mod=redirect&amp;goto=findpost&amp;pid=2398988&amp;ptid=62190" target="_blank"><font color="#999999">▃黑衣大葛格 发表于 2015-8-15 00:26</font></a></font><br />
+好长啊</blockquote></div><br />
+
+<br />
+<img src="static/image/smiley/ali/ali20.gif" smilieid="220" border="0" alt="" />翻译了三天……<br />
+<br />
+里边一些难以理解的我都加上了自己的注释和例子……<br />
+<br />
+才发现整个文档翻译不是什么容易的事，太多莫名其妙的方法，末尾还来一句“该方法不适用于通常的 Pygame 开发”，不适用你发明出来作甚！！<br />
+<img src="static/image/smiley/ali/ali10.gif" smilieid="230" border="0" alt="" /> <br />
+<br />
+</td></tr></table>
+
+
+</div>
+<div id="comment_2399123" class="cm">
+</div>
+
+<div id="post_rate_div_2399123"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div class="sign">想知道小甲鱼最近在做啥？请访问 -> <a href="https://ilovefishc.com" target="_blank">ilovefishc.com</a></div>
+</td>
+</tr>
+<tr id="_postposition2399123"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=243&amp;tid=62190&amp;repquote=2399123&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+<a class="replyadd" href="forum.php?mod=misc&amp;action=postreview&amp;do=support&amp;tid=62190&amp;pid=2399123&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_support_2399123').innerHTML ? $('review_support_2399123').innerHTML : 0) + ' 人 支持'">支持 <span id="review_support_2399123">1</span></a>
+<a class="replysubtract" href="forum.php?mod=misc&amp;action=postreview&amp;do=against&amp;tid=62190&amp;pid=2399123&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_against_2399123').innerHTML ? $('review_against_2399123').innerHTML : 0) + ' 人 反对'">反对 <span id="review_against_2399123">0</span></a>
+</em>
+
+<p>
+<a href="javascript:;" onclick="showWindow('miscreport2399123', 'misc.php?mod=report&rtype=post&rid=2399123&tid=62190&fid=243', 'get', -1);return false;">举报</a>
+</p>
+
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_2425904" ><table id="pid2425904" class="plhin" summary="pid2425904" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar2425904" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="https://fishc.com.cn/space-uid-321904.html" target="_blank" class="xw1">somuch</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo2425904" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo2425904_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="https://fishc.com.cn/space-uid-321904.html" target="_blank" class="xi2">somuch</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+	<dt>UID</dt><dd><a href="?321904" target="_blank" class="xi2">321904</a></dd>
+	<dt>日志</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=321904&do=blog&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>相册</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=321904&do=album&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>贡献</dt><dd> </dd>
+	<dt>荣誉</dt><dd> </dd>
+	<dt>技术值</dt><dd> </dd>
+</dl>
+<div class="imicn">
+<a href="https://fishc.com.cn/home.php?mod=space&amp;uid=321904&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="https://fishc.com.cn/space-uid-321904.html" class="avtm" target="_blank"><img src="https://fishc.com.cn/ucenter/avatar.php?uid=321904&size=middle" /></a></div>
+</div>
+<dl class="pil cl"><dt><a href="bestanswer.php?mod=user&uid=321904" target="_blank"><font color=red>最佳答案</font></a></dt><dd><a href="bestanswer.php?mod=user&uid=321904" target="_blank"><font color=red>0</font></a>&nbsp; </dd></dl></div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="https://fishc.com.cn/forum.php?mod=redirect&goto=findpost&ptid=62190&pid=2425904"   id="postnum2425904" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>4</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon2425904" src="static/image/common/online_member.gif" />
+<em id="authorposton2425904">发表于 2015-10-3 02:29:03</em>
+<span class="pipe">|</span>
+<a href="https://fishc.com.cn/forum.php?mod=viewthread&amp;tid=62190&amp;page=1&amp;authorid=321904" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_2425904">
+怎么没有sprite啊 佳宇 我可是等着你了啦！</td></tr></table>
+
+
+</div>
+<div id="comment_2425904" class="cm">
+</div>
+
+<div id="post_rate_div_2425904"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div class="sign">想知道小甲鱼最近在做啥？请访问 -> <a href="https://ilovefishc.com" target="_blank">ilovefishc.com</a></div>
+</td>
+</tr>
+<tr id="_postposition2425904"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=243&amp;tid=62190&amp;repquote=2425904&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+<a class="replyadd" href="forum.php?mod=misc&amp;action=postreview&amp;do=support&amp;tid=62190&amp;pid=2425904&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_support_2425904').innerHTML ? $('review_support_2425904').innerHTML : 0) + ' 人 支持'">支持 <span id="review_support_2425904"></span></a>
+<a class="replysubtract" href="forum.php?mod=misc&amp;action=postreview&amp;do=against&amp;tid=62190&amp;pid=2425904&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_against_2425904').innerHTML ? $('review_against_2425904').innerHTML : 0) + ' 人 反对'">反对 <span id="review_against_2425904"></span></a>
+</em>
+
+<p>
+<a href="javascript:;" onclick="showWindow('miscreport2425904', 'misc.php?mod=report&rtype=post&rid=2425904&tid=62190&fid=243', 'get', -1);return false;">举报</a>
+</p>
+
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_2455523" ><table id="pid2455523" class="plhin" summary="pid2455523" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar2455523" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="https://fishc.com.cn/space-uid-341217.html" target="_blank" class="xw1" style="color: #008000">shankedazhaopen</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo2455523" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo2455523_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="https://fishc.com.cn/space-uid-341217.html" target="_blank" class="xi2" style="color: #008000">shankedazhaopen</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+	<dt>UID</dt><dd><a href="?341217" target="_blank" class="xi2">341217</a></dd>
+	<dt>日志</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=341217&do=blog&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>相册</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=341217&do=album&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>贡献</dt><dd> </dd>
+	<dt>荣誉</dt><dd> </dd>
+	<dt>技术值</dt><dd> </dd>
+</dl>
+<div class="imicn">
+<a href="https://fishc.com.cn/home.php?mod=space&amp;uid=341217&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="https://fishc.com.cn/space-uid-341217.html" class="avtm" target="_blank"><img src="https://fishc.com.cn/ucenter/avatar.php?uid=341217&size=middle" /></a></div>
+</div>
+<dl class="pil cl"><dt><a href="bestanswer.php?mod=user&uid=341217" target="_blank"><font color=red>最佳答案</font></a></dt><dd><a href="bestanswer.php?mod=user&uid=341217" target="_blank"><font color=red>0</font></a>&nbsp; </dd></dl></div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="https://fishc.com.cn/forum.php?mod=redirect&goto=findpost&ptid=62190&pid=2455523"   id="postnum2455523" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>5</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon2455523" src="static/image/common/online_vip.gif" />
+<em id="authorposton2455523">发表于 2015-11-25 10:32:46</em>
+<span class="pipe">|</span>
+<a href="https://fishc.com.cn/forum.php?mod=viewthread&amp;tid=62190&amp;page=1&amp;authorid=341217" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_2455523">
+怎么不可以复制啊楼主</td></tr></table>
+
+
+</div>
+<div id="comment_2455523" class="cm">
+</div>
+
+<div id="post_rate_div_2455523"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div class="sign">想知道小甲鱼最近在做啥？请访问 -> <a href="https://ilovefishc.com" target="_blank">ilovefishc.com</a></div>
+<div class="a_pb"><a href="http://bbs.fishc.com/thread-90350-1-1.html" target="_blank" ><b><font color="#FF0000"><p class="MsoNormal">15PB信息安全2018新课改：偏重编程、软件逆向破解、漏洞挖掘与利用、移动端安全等方向，增加相关工作的实战训练！学员毕业就职于大型互联网公司、安全公司。<br></p></font></b></a></div></td>
+</tr>
+<tr id="_postposition2455523"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=243&amp;tid=62190&amp;repquote=2455523&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+<a class="replyadd" href="forum.php?mod=misc&amp;action=postreview&amp;do=support&amp;tid=62190&amp;pid=2455523&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_support_2455523').innerHTML ? $('review_support_2455523').innerHTML : 0) + ' 人 支持'">支持 <span id="review_support_2455523"></span></a>
+<a class="replysubtract" href="forum.php?mod=misc&amp;action=postreview&amp;do=against&amp;tid=62190&amp;pid=2455523&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_against_2455523').innerHTML ? $('review_against_2455523').innerHTML : 0) + ' 人 反对'">反对 <span id="review_against_2455523"></span></a>
+</em>
+
+<p>
+<a href="javascript:;" onclick="showWindow('miscreport2455523', 'misc.php?mod=report&rtype=post&rid=2455523&tid=62190&fid=243', 'get', -1);return false;">举报</a>
+</p>
+
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_2734051" ><table id="pid2734051" class="plhin" summary="pid2734051" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar2734051" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="https://fishc.com.cn/space-uid-390289.html" target="_blank" class="xw1" style="color: #008000">流月飞星</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo2734051" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo2734051_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="https://fishc.com.cn/space-uid-390289.html" target="_blank" class="xi2" style="color: #008000">流月飞星</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+	<dt>UID</dt><dd><a href="?390289" target="_blank" class="xi2">390289</a></dd>
+	<dt>日志</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=390289&do=blog&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>相册</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=390289&do=album&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>贡献</dt><dd> </dd>
+	<dt>荣誉</dt><dd> </dd>
+	<dt>技术值</dt><dd> </dd>
+</dl>
+<div class="imicn">
+<a href="https://fishc.com.cn/home.php?mod=space&amp;uid=390289&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="https://fishc.com.cn/space-uid-390289.html" class="avtm" target="_blank"><img src="https://fishc.com.cn/ucenter/avatar.php?uid=390289&size=middle" /></a></div>
+</div>
+<dl class="pil cl"><dt><a href="bestanswer.php?mod=user&uid=390289" target="_blank"><font color=red>最佳答案</font></a></dt><dd><a href="bestanswer.php?mod=user&uid=390289" target="_blank"><font color=red>1</font></a>&nbsp; </dd></dl></div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="https://fishc.com.cn/forum.php?mod=redirect&goto=findpost&ptid=62190&pid=2734051"   id="postnum2734051" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>6</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon2734051" src="static/image/common/online_vip.gif" />
+<em id="authorposton2734051">发表于 2016-12-4 18:24:42</em>
+<span class="pipe">|</span>
+<a href="https://fishc.com.cn/forum.php?mod=viewthread&amp;tid=62190&amp;page=1&amp;authorid=390289" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_2734051">
+<img src="static/image/smiley/ali/ali10.gif" smilieid="230" border="0" alt="" /></td></tr></table>
+
+
+</div>
+<div id="comment_2734051" class="cm">
+</div>
+
+<div id="post_rate_div_2734051"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div class="sign">想知道小甲鱼最近在做啥？请访问 -> <a href="https://ilovefishc.com" target="_blank">ilovefishc.com</a></div>
+</td>
+</tr>
+<tr id="_postposition2734051"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=243&amp;tid=62190&amp;repquote=2734051&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" onclick="showWindow('miscreport2734051', 'misc.php?mod=report&rtype=post&rid=2734051&tid=62190&fid=243', 'get', -1);return false;">举报</a>
+</p>
+
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_2734055" ><table id="pid2734055" class="plhin" summary="pid2734055" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar2734055" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="https://fishc.com.cn/space-uid-390289.html" target="_blank" class="xw1" style="color: #008000">流月飞星</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo2734055" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo2734055_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="https://fishc.com.cn/space-uid-390289.html" target="_blank" class="xi2" style="color: #008000">流月飞星</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+	<dt>UID</dt><dd><a href="?390289" target="_blank" class="xi2">390289</a></dd>
+	<dt>日志</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=390289&do=blog&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>相册</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=390289&do=album&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>贡献</dt><dd> </dd>
+	<dt>荣誉</dt><dd> </dd>
+	<dt>技术值</dt><dd> </dd>
+</dl>
+<div class="imicn">
+<a href="https://fishc.com.cn/home.php?mod=space&amp;uid=390289&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="https://fishc.com.cn/space-uid-390289.html" class="avtm" target="_blank"><img src="https://fishc.com.cn/ucenter/avatar.php?uid=390289&size=middle" /></a></div>
+</div>
+<dl class="pil cl"><dt><a href="bestanswer.php?mod=user&uid=390289" target="_blank"><font color=red>最佳答案</font></a></dt><dd><a href="bestanswer.php?mod=user&uid=390289" target="_blank"><font color=red>1</font></a>&nbsp; </dd></dl></div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="https://fishc.com.cn/forum.php?mod=redirect&goto=findpost&ptid=62190&pid=2734055"   id="postnum2734055" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>7</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon2734055" src="static/image/common/online_vip.gif" />
+<em id="authorposton2734055">发表于 2016-12-4 18:41:36</em>
+<span class="pipe">|</span>
+<a href="https://fishc.com.cn/forum.php?mod=viewthread&amp;tid=62190&amp;page=1&amp;authorid=390289" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_2734055">
+甲鱼兄威武</td></tr></table>
+
+
+</div>
+<div id="comment_2734055" class="cm">
+</div>
+
+<div id="post_rate_div_2734055"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div class="sign">想知道小甲鱼最近在做啥？请访问 -> <a href="https://ilovefishc.com" target="_blank">ilovefishc.com</a></div>
+</td>
+</tr>
+<tr id="_postposition2734055"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=243&amp;tid=62190&amp;repquote=2734055&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+<a class="replyadd" href="forum.php?mod=misc&amp;action=postreview&amp;do=support&amp;tid=62190&amp;pid=2734055&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_support_2734055').innerHTML ? $('review_support_2734055').innerHTML : 0) + ' 人 支持'">支持 <span id="review_support_2734055"></span></a>
+<a class="replysubtract" href="forum.php?mod=misc&amp;action=postreview&amp;do=against&amp;tid=62190&amp;pid=2734055&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_against_2734055').innerHTML ? $('review_against_2734055').innerHTML : 0) + ' 人 反对'">反对 <span id="review_against_2734055"></span></a>
+</em>
+
+<p>
+<a href="javascript:;" onclick="showWindow('miscreport2734055', 'misc.php?mod=report&rtype=post&rid=2734055&tid=62190&fid=243', 'get', -1);return false;">举报</a>
+</p>
+
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_2781051" ><table id="pid2781051" class="plhin" summary="pid2781051" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar2781051" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="https://fishc.com.cn/space-uid-410477.html" target="_blank" class="xw1">小新44</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo2781051" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo2781051_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="https://fishc.com.cn/space-uid-410477.html" target="_blank" class="xi2">小新44</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+	<dt>UID</dt><dd><a href="?410477" target="_blank" class="xi2">410477</a></dd>
+	<dt>日志</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=410477&do=blog&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>相册</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=410477&do=album&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>贡献</dt><dd> </dd>
+	<dt>荣誉</dt><dd> </dd>
+	<dt>技术值</dt><dd> </dd>
+</dl>
+<div class="imicn">
+<a href="https://fishc.com.cn/home.php?mod=space&amp;uid=410477&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="https://fishc.com.cn/space-uid-410477.html" class="avtm" target="_blank"><img src="https://fishc.com.cn/ucenter/avatar.php?uid=410477&size=middle" /></a></div>
+</div>
+<dl class="pil cl"><dt><a href="bestanswer.php?mod=user&uid=410477" target="_blank"><font color=red>最佳答案</font></a></dt><dd><a href="bestanswer.php?mod=user&uid=410477" target="_blank"><font color=red>0</font></a>&nbsp; </dd></dl></div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="https://fishc.com.cn/forum.php?mod=redirect&goto=findpost&ptid=62190&pid=2781051"   id="postnum2781051" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>8</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon2781051" src="static/image/common/online_member.gif" />
+<em id="authorposton2781051">发表于 2017-1-24 15:48:19</em>
+<span class="pipe">|</span>
+<a href="https://fishc.com.cn/forum.php?mod=viewthread&amp;tid=62190&amp;page=1&amp;authorid=410477" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_2781051">
+甲鱼哥，把draw出来的图变成surface怎么搞啊</td></tr></table>
+
+
+</div>
+<div id="comment_2781051" class="cm">
+</div>
+
+<div id="post_rate_div_2781051"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div class="sign">想知道小甲鱼最近在做啥？请访问 -> <a href="https://ilovefishc.com" target="_blank">ilovefishc.com</a></div>
+</td>
+</tr>
+<tr id="_postposition2781051"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=243&amp;tid=62190&amp;repquote=2781051&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+<a class="replyadd" href="forum.php?mod=misc&amp;action=postreview&amp;do=support&amp;tid=62190&amp;pid=2781051&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_support_2781051').innerHTML ? $('review_support_2781051').innerHTML : 0) + ' 人 支持'">支持 <span id="review_support_2781051"></span></a>
+<a class="replysubtract" href="forum.php?mod=misc&amp;action=postreview&amp;do=against&amp;tid=62190&amp;pid=2781051&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_against_2781051').innerHTML ? $('review_against_2781051').innerHTML : 0) + ' 人 反对'">反对 <span id="review_against_2781051"></span></a>
+</em>
+
+<p>
+<a href="javascript:;" onclick="showWindow('miscreport2781051', 'misc.php?mod=report&rtype=post&rid=2781051&tid=62190&fid=243', 'get', -1);return false;">举报</a>
+</p>
+
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_2791888" ><table id="pid2791888" class="plhin" summary="pid2791888" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar2791888" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="https://fishc.com.cn/space-uid-394232.html" target="_blank" class="xw1" style="color: #008000">梦想绘制者</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo2791888" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo2791888_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="https://fishc.com.cn/space-uid-394232.html" target="_blank" class="xi2" style="color: #008000">梦想绘制者</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+	<dt>UID</dt><dd><a href="?394232" target="_blank" class="xi2">394232</a></dd>
+	<dt>日志</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=394232&do=blog&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>相册</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=394232&do=album&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>贡献</dt><dd> </dd>
+	<dt>荣誉</dt><dd> </dd>
+	<dt>技术值</dt><dd> </dd>
+</dl>
+<div class="imicn">
+<a href="https://fishc.com.cn/home.php?mod=space&amp;uid=394232&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="https://fishc.com.cn/space-uid-394232.html" class="avtm" target="_blank"><img src="https://fishc.com.cn/ucenter/avatar.php?uid=394232&size=middle" /></a></div>
+</div>
+<dl class="pil cl"><dt><a href="bestanswer.php?mod=user&uid=394232" target="_blank"><font color=red>最佳答案</font></a></dt><dd><a href="bestanswer.php?mod=user&uid=394232" target="_blank"><font color=red>0</font></a>&nbsp; </dd></dl></div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="https://fishc.com.cn/forum.php?mod=redirect&goto=findpost&ptid=62190&pid=2791888"   id="postnum2791888" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>9</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon2791888" src="static/image/common/online_vip.gif" />
+<em id="authorposton2791888">发表于 2017-2-8 19:44:21</em>
+<span class="pipe">|</span>
+<a href="https://fishc.com.cn/forum.php?mod=viewthread&amp;tid=62190&amp;page=1&amp;authorid=394232" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_2791888">
+楼主辛苦了！致敬。</td></tr></table>
+
+
+</div>
+<div id="comment_2791888" class="cm">
+</div>
+
+<div id="post_rate_div_2791888"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div class="sign">想知道小甲鱼最近在做啥？请访问 -> <a href="https://ilovefishc.com" target="_blank">ilovefishc.com</a></div>
+</td>
+</tr>
+<tr id="_postposition2791888"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=243&amp;tid=62190&amp;repquote=2791888&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+<a class="replyadd" href="forum.php?mod=misc&amp;action=postreview&amp;do=support&amp;tid=62190&amp;pid=2791888&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_support_2791888').innerHTML ? $('review_support_2791888').innerHTML : 0) + ' 人 支持'">支持 <span id="review_support_2791888"></span></a>
+<a class="replysubtract" href="forum.php?mod=misc&amp;action=postreview&amp;do=against&amp;tid=62190&amp;pid=2791888&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_against_2791888').innerHTML ? $('review_against_2791888').innerHTML : 0) + ' 人 反对'">反对 <span id="review_against_2791888"></span></a>
+</em>
+
+<p>
+<a href="javascript:;" onclick="showWindow('miscreport2791888', 'misc.php?mod=report&rtype=post&rid=2791888&tid=62190&fid=243', 'get', -1);return false;">举报</a>
+</p>
+
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_2829104" ><table id="pid2829104" class="plhin" summary="pid2829104" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar2829104" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="https://fishc.com.cn/space-uid-395392.html" target="_blank" class="xw1">名浪人不浪</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo2829104" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo2829104_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="https://fishc.com.cn/space-uid-395392.html" target="_blank" class="xi2">名浪人不浪</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+	<dt>UID</dt><dd><a href="?395392" target="_blank" class="xi2">395392</a></dd>
+	<dt>日志</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=395392&do=blog&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>相册</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=395392&do=album&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>贡献</dt><dd> </dd>
+	<dt>荣誉</dt><dd> </dd>
+	<dt>技术值</dt><dd> </dd>
+</dl>
+<div class="imicn">
+<a href="https://fishc.com.cn/home.php?mod=space&amp;uid=395392&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="https://fishc.com.cn/space-uid-395392.html" class="avtm" target="_blank"><img src="https://fishc.com.cn/ucenter/avatar.php?uid=395392&size=middle" /></a></div>
+</div>
+<dl class="pil cl"><dt><a href="bestanswer.php?mod=user&uid=395392" target="_blank"><font color=red>最佳答案</font></a></dt><dd><a href="bestanswer.php?mod=user&uid=395392" target="_blank"><font color=red>0</font></a>&nbsp; </dd></dl></div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="https://fishc.com.cn/forum.php?mod=redirect&goto=findpost&ptid=62190&pid=2829104"   id="postnum2829104" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>10</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon2829104" src="static/image/common/online_member.gif" />
+<em id="authorposton2829104">发表于 2017-3-12 16:08:09</em>
+<span class="pipe">|</span>
+<a href="https://fishc.com.cn/forum.php?mod=viewthread&amp;tid=62190&amp;page=1&amp;authorid=395392" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_2829104">
+……<br />
+# 图像的尺寸为 100 * 100<br />
+image = pygame.image.load(&quot;fishc.png&quot;).convert_alpha()<br />
+<br />
+print(image.get_rect())<br />
+print(image.get_rect(center=(20, 20)))<br />
+print(image.get_rect())<br />
+……<br />
+<br />
+这个当中的center那行的表示什么意思呀<img src="static/image/smiley/ARU/aru-1x-1_039.png" smilieid="266" border="0" alt="" /></td></tr></table>
+
+
+</div>
+<div id="comment_2829104" class="cm">
+</div>
+
+<div id="post_rate_div_2829104"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div class="sign">想知道小甲鱼最近在做啥？请访问 -> <a href="https://ilovefishc.com" target="_blank">ilovefishc.com</a></div>
+<div class="a_pb"><a href="http://bbs.fishc.com/thread-90350-1-1.html" target="_blank" ><b><font color="#FF0000"><p class="MsoNormal">15PB信息安全2018新课改：偏重编程、软件逆向破解、漏洞挖掘与利用、移动端安全等方向，增加相关工作的实战训练！学员毕业就职于大型互联网公司、安全公司。<br></p></font></b></a></div></td>
+</tr>
+<tr id="_postposition2829104"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=243&amp;tid=62190&amp;repquote=2829104&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+<a class="replyadd" href="forum.php?mod=misc&amp;action=postreview&amp;do=support&amp;tid=62190&amp;pid=2829104&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_support_2829104').innerHTML ? $('review_support_2829104').innerHTML : 0) + ' 人 支持'">支持 <span id="review_support_2829104"></span></a>
+<a class="replysubtract" href="forum.php?mod=misc&amp;action=postreview&amp;do=against&amp;tid=62190&amp;pid=2829104&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_against_2829104').innerHTML ? $('review_against_2829104').innerHTML : 0) + ' 人 反对'">反对 <span id="review_against_2829104"></span></a>
+</em>
+
+<p>
+<a href="javascript:;" onclick="showWindow('miscreport2829104', 'misc.php?mod=report&rtype=post&rid=2829104&tid=62190&fid=243', 'get', -1);return false;">举报</a>
+</p>
+
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_2846745" ><table id="pid2846745" class="plhin" summary="pid2846745" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar2846745" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="https://fishc.com.cn/space-uid-410032.html" target="_blank" class="xw1">sunnychou</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo2846745" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo2846745_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="https://fishc.com.cn/space-uid-410032.html" target="_blank" class="xi2">sunnychou</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+	<dt>UID</dt><dd><a href="?410032" target="_blank" class="xi2">410032</a></dd>
+	<dt>日志</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=410032&do=blog&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>相册</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=410032&do=album&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>贡献</dt><dd> </dd>
+	<dt>荣誉</dt><dd> </dd>
+	<dt>技术值</dt><dd> </dd>
+</dl>
+<div class="imicn">
+<a href="https://fishc.com.cn/home.php?mod=space&amp;uid=410032&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="https://fishc.com.cn/space-uid-410032.html" class="avtm" target="_blank"><img src="https://fishc.com.cn/ucenter/avatar.php?uid=410032&size=middle" /></a></div>
+</div>
+<dl class="pil cl"><dt><a href="bestanswer.php?mod=user&uid=410032" target="_blank"><font color=red>最佳答案</font></a></dt><dd><a href="bestanswer.php?mod=user&uid=410032" target="_blank"><font color=red>16</font></a>&nbsp; </dd></dl></div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="https://fishc.com.cn/forum.php?mod=redirect&goto=findpost&ptid=62190&pid=2846745"   id="postnum2846745" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>11</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon2846745" src="static/image/common/online_member.gif" />
+<em id="authorposton2846745">发表于 2017-3-28 20:59:36</em>
+<span class="pipe">|</span>
+<a href="https://fishc.com.cn/forum.php?mod=viewthread&amp;tid=62190&amp;page=1&amp;authorid=410032" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_2846745">
+<div class="quote"><blockquote><font size="2"><a href="https://fishc.com.cn/forum.php?mod=redirect&amp;goto=findpost&amp;pid=2399123&amp;ptid=62190" target="_blank"><font color="#999999">小甲鱼 发表于 2015-8-15 12:46</font></a></font><br />
+翻译了三天……<br />
+<br />
+里边一些难以理解的我都加上了自己的注释和例子……</blockquote></div><br />
+心疼小甲鱼<img src="static/image/smiley/lovely/20080925104549676.gif" smilieid="91" border="0" alt="" /></td></tr></table>
+
+
+</div>
+<div id="comment_2846745" class="cm">
+</div>
+
+<div id="post_rate_div_2846745"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div class="sign">想知道小甲鱼最近在做啥？请访问 -> <a href="https://ilovefishc.com" target="_blank">ilovefishc.com</a></div>
+</td>
+</tr>
+<tr id="_postposition2846745"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=243&amp;tid=62190&amp;repquote=2846745&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+<a class="replyadd" href="forum.php?mod=misc&amp;action=postreview&amp;do=support&amp;tid=62190&amp;pid=2846745&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_support_2846745').innerHTML ? $('review_support_2846745').innerHTML : 0) + ' 人 支持'">支持 <span id="review_support_2846745"></span></a>
+<a class="replysubtract" href="forum.php?mod=misc&amp;action=postreview&amp;do=against&amp;tid=62190&amp;pid=2846745&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_against_2846745').innerHTML ? $('review_against_2846745').innerHTML : 0) + ' 人 反对'">反对 <span id="review_against_2846745"></span></a>
+</em>
+
+<p>
+<a href="javascript:;" onclick="showWindow('miscreport2846745', 'misc.php?mod=report&rtype=post&rid=2846745&tid=62190&fid=243', 'get', -1);return false;">举报</a>
+</p>
+
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_2846764" ><table id="pid2846764" class="plhin" summary="pid2846764" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar2846764" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="https://fishc.com.cn/space-uid-410032.html" target="_blank" class="xw1">sunnychou</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo2846764" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo2846764_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="https://fishc.com.cn/space-uid-410032.html" target="_blank" class="xi2">sunnychou</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+	<dt>UID</dt><dd><a href="?410032" target="_blank" class="xi2">410032</a></dd>
+	<dt>日志</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=410032&do=blog&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>相册</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=410032&do=album&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>贡献</dt><dd> </dd>
+	<dt>荣誉</dt><dd> </dd>
+	<dt>技术值</dt><dd> </dd>
+</dl>
+<div class="imicn">
+<a href="https://fishc.com.cn/home.php?mod=space&amp;uid=410032&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="https://fishc.com.cn/space-uid-410032.html" class="avtm" target="_blank"><img src="https://fishc.com.cn/ucenter/avatar.php?uid=410032&size=middle" /></a></div>
+</div>
+<dl class="pil cl"><dt><a href="bestanswer.php?mod=user&uid=410032" target="_blank"><font color=red>最佳答案</font></a></dt><dd><a href="bestanswer.php?mod=user&uid=410032" target="_blank"><font color=red>16</font></a>&nbsp; </dd></dl></div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="https://fishc.com.cn/forum.php?mod=redirect&goto=findpost&ptid=62190&pid=2846764"   id="postnum2846764" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>12</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon2846764" src="static/image/common/online_member.gif" />
+<em id="authorposton2846764">发表于 2017-3-28 21:06:04</em>
+<span class="pipe">|</span>
+<a href="https://fishc.com.cn/forum.php?mod=viewthread&amp;tid=62190&amp;page=1&amp;authorid=410032" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_2846764">
+<div class="quote"><blockquote><font size="2"><a href="https://fishc.com.cn/forum.php?mod=redirect&amp;goto=findpost&amp;pid=2829104&amp;ptid=62190" target="_blank"><font color="#999999">名浪人不浪 发表于 2017-3-12 16:08</font></a></font><br />
+……<br />
+# 图像的尺寸为 100 * 100<br />
+image = pygame.image.load(&quot;fishc.png&quot;).convert_alpha()</blockquote></div><br />
+可以附上源码么</td></tr></table>
+
+
+</div>
+<div id="comment_2846764" class="cm">
+</div>
+
+<div id="post_rate_div_2846764"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div class="sign">想知道小甲鱼最近在做啥？请访问 -> <a href="https://ilovefishc.com" target="_blank">ilovefishc.com</a></div>
+</td>
+</tr>
+<tr id="_postposition2846764"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=243&amp;tid=62190&amp;repquote=2846764&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+<a class="replyadd" href="forum.php?mod=misc&amp;action=postreview&amp;do=support&amp;tid=62190&amp;pid=2846764&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_support_2846764').innerHTML ? $('review_support_2846764').innerHTML : 0) + ' 人 支持'">支持 <span id="review_support_2846764"></span></a>
+<a class="replysubtract" href="forum.php?mod=misc&amp;action=postreview&amp;do=against&amp;tid=62190&amp;pid=2846764&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_against_2846764').innerHTML ? $('review_against_2846764').innerHTML : 0) + ' 人 反对'">反对 <span id="review_against_2846764"></span></a>
+</em>
+
+<p>
+<a href="javascript:;" onclick="showWindow('miscreport2846764', 'misc.php?mod=report&rtype=post&rid=2846764&tid=62190&fid=243', 'get', -1);return false;">举报</a>
+</p>
+
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_2900786" ><table id="pid2900786" class="plhin" summary="pid2900786" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar2900786" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="https://fishc.com.cn/space-uid-430715.html" target="_blank" class="xw1" style="color: #008000">Python_meng</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo2900786" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo2900786_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="https://fishc.com.cn/space-uid-430715.html" target="_blank" class="xi2" style="color: #008000">Python_meng</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+	<dt>UID</dt><dd><a href="?430715" target="_blank" class="xi2">430715</a></dd>
+	<dt>日志</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=430715&do=blog&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>相册</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=430715&do=album&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>贡献</dt><dd> </dd>
+	<dt>荣誉</dt><dd> </dd>
+	<dt>技术值</dt><dd> </dd>
+</dl>
+<div class="imicn">
+<a href="https://fishc.com.cn/home.php?mod=space&amp;uid=430715&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="https://fishc.com.cn/space-uid-430715.html" class="avtm" target="_blank"><img src="https://fishc.com.cn/ucenter/avatar.php?uid=430715&size=middle" /></a></div>
+</div>
+<dl class="pil cl"><dt><a href="bestanswer.php?mod=user&uid=430715" target="_blank"><font color=red>最佳答案</font></a></dt><dd><a href="bestanswer.php?mod=user&uid=430715" target="_blank"><font color=red>0</font></a>&nbsp; </dd></dl></div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="https://fishc.com.cn/forum.php?mod=redirect&goto=findpost&ptid=62190&pid=2900786"   id="postnum2900786" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>13</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon2900786" src="static/image/common/online_vip.gif" />
+<em id="authorposton2900786">发表于 2017-5-27 14:59:29</em>
+<span class="pipe">|</span>
+<a href="https://fishc.com.cn/forum.php?mod=viewthread&amp;tid=62190&amp;page=1&amp;authorid=430715" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_2900786">
+下次建议附上英文版，这样子方便学习英语呀！</td></tr></table>
+
+
+</div>
+<div id="comment_2900786" class="cm">
+</div>
+
+<div id="post_rate_div_2900786"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div class="sign">想知道小甲鱼最近在做啥？请访问 -> <a href="https://ilovefishc.com" target="_blank">ilovefishc.com</a></div>
+</td>
+</tr>
+<tr id="_postposition2900786"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=243&amp;tid=62190&amp;repquote=2900786&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+<a class="replyadd" href="forum.php?mod=misc&amp;action=postreview&amp;do=support&amp;tid=62190&amp;pid=2900786&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_support_2900786').innerHTML ? $('review_support_2900786').innerHTML : 0) + ' 人 支持'">支持 <span id="review_support_2900786"></span></a>
+<a class="replysubtract" href="forum.php?mod=misc&amp;action=postreview&amp;do=against&amp;tid=62190&amp;pid=2900786&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_against_2900786').innerHTML ? $('review_against_2900786').innerHTML : 0) + ' 人 反对'">反对 <span id="review_against_2900786"></span></a>
+</em>
+
+<p>
+<a href="javascript:;" onclick="showWindow('miscreport2900786', 'misc.php?mod=report&rtype=post&rid=2900786&tid=62190&fid=243', 'get', -1);return false;">举报</a>
+</p>
+
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_3129621" ><table id="pid3129621" class="plhin" summary="pid3129621" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar3129621" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="https://fishc.com.cn/space-uid-481227.html" target="_blank" class="xw1">payton24</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo3129621" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo3129621_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="https://fishc.com.cn/space-uid-481227.html" target="_blank" class="xi2">payton24</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+	<dt>UID</dt><dd><a href="?481227" target="_blank" class="xi2">481227</a></dd>
+	<dt>日志</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=481227&do=blog&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>相册</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=481227&do=album&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>贡献</dt><dd> </dd>
+	<dt>荣誉</dt><dd> </dd>
+	<dt>技术值</dt><dd> </dd>
+</dl>
+<div class="imicn">
+<a href="https://fishc.com.cn/home.php?mod=space&amp;uid=481227&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="https://fishc.com.cn/space-uid-481227.html" class="avtm" target="_blank"><img src="https://fishc.com.cn/ucenter/avatar.php?uid=481227&size=middle" /></a></div>
+</div>
+<dl class="pil cl"><dt><a href="bestanswer.php?mod=user&uid=481227" target="_blank"><font color=red>最佳答案</font></a></dt><dd><a href="bestanswer.php?mod=user&uid=481227" target="_blank"><font color=red>3</font></a>&nbsp; </dd></dl></div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="https://fishc.com.cn/forum.php?mod=redirect&goto=findpost&ptid=62190&pid=3129621"   id="postnum3129621" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>14</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon3129621" src="static/image/common/online_member.gif" />
+<em id="authorposton3129621">发表于 2017-12-21 19:17:57</em>
+<span class="pipe">|</span>
+<a href="https://fishc.com.cn/forum.php?mod=viewthread&amp;tid=62190&amp;page=1&amp;authorid=481227" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_3129621">
+已经不错了，感谢</td></tr></table>
+
+
+</div>
+<div id="comment_3129621" class="cm">
+</div>
+
+<div id="post_rate_div_3129621"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div class="sign">想知道小甲鱼最近在做啥？请访问 -> <a href="https://ilovefishc.com" target="_blank">ilovefishc.com</a></div>
+</td>
+</tr>
+<tr id="_postposition3129621"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=243&amp;tid=62190&amp;repquote=3129621&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+<a class="replyadd" href="forum.php?mod=misc&amp;action=postreview&amp;do=support&amp;tid=62190&amp;pid=3129621&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_support_3129621').innerHTML ? $('review_support_3129621').innerHTML : 0) + ' 人 支持'">支持 <span id="review_support_3129621"></span></a>
+<a class="replysubtract" href="forum.php?mod=misc&amp;action=postreview&amp;do=against&amp;tid=62190&amp;pid=3129621&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_against_3129621').innerHTML ? $('review_against_3129621').innerHTML : 0) + ' 人 反对'">反对 <span id="review_against_3129621"></span></a>
+</em>
+
+<p>
+<a href="javascript:;" onclick="showWindow('miscreport3129621', 'misc.php?mod=report&rtype=post&rid=3129621&tid=62190&fid=243', 'get', -1);return false;">举报</a>
+</p>
+
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_3522339" ><table id="pid3522339" class="plhin" summary="pid3522339" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar3522339" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="https://fishc.com.cn/space-uid-470126.html" target="_blank" class="xw1" style="color: #008000">苏丛</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo3522339" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo3522339_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="https://fishc.com.cn/space-uid-470126.html" target="_blank" class="xi2" style="color: #008000">苏丛</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+	<dt>UID</dt><dd><a href="?470126" target="_blank" class="xi2">470126</a></dd>
+	<dt>日志</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=470126&do=blog&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>相册</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=470126&do=album&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>贡献</dt><dd> </dd>
+	<dt>荣誉</dt><dd> </dd>
+	<dt>技术值</dt><dd> </dd>
+</dl>
+<div class="imicn">
+<a href="https://fishc.com.cn/home.php?mod=space&amp;uid=470126&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="https://fishc.com.cn/space-uid-470126.html" class="avtm" target="_blank"><img src="https://fishc.com.cn/ucenter/avatar.php?uid=470126&size=middle" /></a></div>
+</div>
+<dl class="pil cl"><dt><a href="bestanswer.php?mod=user&uid=470126" target="_blank"><font color=red>最佳答案</font></a></dt><dd><a href="bestanswer.php?mod=user&uid=470126" target="_blank"><font color=red>0</font></a>&nbsp; </dd></dl></div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="https://fishc.com.cn/forum.php?mod=redirect&goto=findpost&ptid=62190&pid=3522339"   id="postnum3522339" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>15</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon3522339" src="static/image/common/online_vip.gif" />
+<em id="authorposton3522339">发表于 2018-9-1 09:28:27</em>
+<span class="pipe">|</span>
+<a href="https://fishc.com.cn/forum.php?mod=viewthread&amp;tid=62190&amp;page=1&amp;authorid=470126" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_3522339">
+<div class="quote"><blockquote><font size="2"><a href="https://fishc.com.cn/forum.php?mod=redirect&amp;goto=findpost&amp;pid=2829104&amp;ptid=62190" target="_blank"><font color="#999999">名浪人不浪 发表于 2017-3-12 16:08</font></a></font><br />
+……<br />
+# 图像的尺寸为 100 * 100<br />
+image = pygame.image.load(&quot;fishc.png&quot;).convert_alpha()</blockquote></div><br />
+我也不懂什么意思，你知道了吗</td></tr></table>
+
+
+</div>
+<div id="comment_3522339" class="cm">
+</div>
+
+<div id="post_rate_div_3522339"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div class="sign">想知道小甲鱼最近在做啥？请访问 -> <a href="https://ilovefishc.com" target="_blank">ilovefishc.com</a></div>
+<div class="a_pb"><a href="http://bbs.fishc.com/thread-90350-1-1.html" target="_blank" ><b><font color="#FF0000"><p class="MsoNormal">15PB信息安全2018新课改：偏重编程、软件逆向破解、漏洞挖掘与利用、移动端安全等方向，增加相关工作的实战训练！学员毕业就职于大型互联网公司、安全公司。<br></p></font></b></a></div></td>
+</tr>
+<tr id="_postposition3522339"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=243&amp;tid=62190&amp;repquote=3522339&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+<a class="replyadd" href="forum.php?mod=misc&amp;action=postreview&amp;do=support&amp;tid=62190&amp;pid=3522339&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_support_3522339').innerHTML ? $('review_support_3522339').innerHTML : 0) + ' 人 支持'">支持 <span id="review_support_3522339"></span></a>
+<a class="replysubtract" href="forum.php?mod=misc&amp;action=postreview&amp;do=against&amp;tid=62190&amp;pid=3522339&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_against_3522339').innerHTML ? $('review_against_3522339').innerHTML : 0) + ' 人 反对'">反对 <span id="review_against_3522339"></span></a>
+</em>
+
+<p>
+<a href="javascript:;" onclick="showWindow('miscreport3522339', 'misc.php?mod=report&rtype=post&rid=3522339&tid=62190&fid=243', 'get', -1);return false;">举报</a>
+</p>
+
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_3522392" ><table id="pid3522392" class="plhin" summary="pid3522392" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar3522392" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="https://fishc.com.cn/space-uid-470126.html" target="_blank" class="xw1" style="color: #008000">苏丛</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo3522392" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo3522392_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="https://fishc.com.cn/space-uid-470126.html" target="_blank" class="xi2" style="color: #008000">苏丛</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+	<dt>UID</dt><dd><a href="?470126" target="_blank" class="xi2">470126</a></dd>
+	<dt>日志</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=470126&do=blog&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>相册</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=470126&do=album&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>贡献</dt><dd> </dd>
+	<dt>荣誉</dt><dd> </dd>
+	<dt>技术值</dt><dd> </dd>
+</dl>
+<div class="imicn">
+<a href="https://fishc.com.cn/home.php?mod=space&amp;uid=470126&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="https://fishc.com.cn/space-uid-470126.html" class="avtm" target="_blank"><img src="https://fishc.com.cn/ucenter/avatar.php?uid=470126&size=middle" /></a></div>
+</div>
+<dl class="pil cl"><dt><a href="bestanswer.php?mod=user&uid=470126" target="_blank"><font color=red>最佳答案</font></a></dt><dd><a href="bestanswer.php?mod=user&uid=470126" target="_blank"><font color=red>0</font></a>&nbsp; </dd></dl></div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="https://fishc.com.cn/forum.php?mod=redirect&goto=findpost&ptid=62190&pid=3522392"   id="postnum3522392" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>16</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon3522392" src="static/image/common/online_vip.gif" />
+<em id="authorposton3522392">发表于 2018-9-1 10:05:45</em>
+<span class="pipe">|</span>
+<a href="https://fishc.com.cn/forum.php?mod=viewthread&amp;tid=62190&amp;page=1&amp;authorid=470126" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_3522392">
+<div class="quote"><blockquote><font size="2"><a href="https://fishc.com.cn/forum.php?mod=redirect&amp;goto=findpost&amp;pid=2829104&amp;ptid=62190" target="_blank"><font color="#999999">名浪人不浪 发表于 2017-3-12 16:08</font></a></font><br />
+……<br />
+# 图像的尺寸为 100 * 100<br />
+image = pygame.image.load(&quot;fishc.png&quot;).convert_alpha()</blockquote></div><br />
+我知道了，<br />
+意思是<br />
+图片的中心的坐标位置<br />
+<br />
+小甲鱼给的例子是这样的<br />
+第一次的图片中心是（50， 50）<br />
+第二次设置为（20， 20）<br />
+那么左上角的坐标就在（-30， -30）了</td></tr></table>
+
+
+</div>
+<div id="comment_3522392" class="cm">
+</div>
+
+<div id="post_rate_div_3522392"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div class="sign">想知道小甲鱼最近在做啥？请访问 -> <a href="https://ilovefishc.com" target="_blank">ilovefishc.com</a></div>
+</td>
+</tr>
+<tr id="_postposition3522392"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=243&amp;tid=62190&amp;repquote=3522392&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+<a class="replyadd" href="forum.php?mod=misc&amp;action=postreview&amp;do=support&amp;tid=62190&amp;pid=3522392&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_support_3522392').innerHTML ? $('review_support_3522392').innerHTML : 0) + ' 人 支持'">支持 <span id="review_support_3522392"></span></a>
+<a class="replysubtract" href="forum.php?mod=misc&amp;action=postreview&amp;do=against&amp;tid=62190&amp;pid=3522392&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_against_3522392').innerHTML ? $('review_against_3522392').innerHTML : 0) + ' 人 反对'">反对 <span id="review_against_3522392"></span></a>
+</em>
+
+<p>
+<a href="javascript:;" onclick="showWindow('miscreport3522392', 'misc.php?mod=report&rtype=post&rid=3522392&tid=62190&fid=243', 'get', -1);return false;">举报</a>
+</p>
+
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_3535437" ><table id="pid3535437" class="plhin" summary="pid3535437" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar3535437" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="https://fishc.com.cn/space-uid-584873.html" target="_blank" class="xw1">银色子弹zjt</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo3535437" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo3535437_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="https://fishc.com.cn/space-uid-584873.html" target="_blank" class="xi2">银色子弹zjt</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+	<dt>UID</dt><dd><a href="?584873" target="_blank" class="xi2">584873</a></dd>
+	<dt>日志</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=584873&do=blog&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>相册</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=584873&do=album&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>贡献</dt><dd> </dd>
+	<dt>荣誉</dt><dd> </dd>
+	<dt>技术值</dt><dd> </dd>
+</dl>
+<div class="imicn">
+<a href="https://fishc.com.cn/home.php?mod=space&amp;uid=584873&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="https://fishc.com.cn/space-uid-584873.html" class="avtm" target="_blank"><img src="https://fishc.com.cn/ucenter/avatar.php?uid=584873&size=middle" /></a></div>
+</div>
+<dl class="pil cl"><dt><a href="bestanswer.php?mod=user&uid=584873" target="_blank"><font color=red>最佳答案</font></a></dt><dd><a href="bestanswer.php?mod=user&uid=584873" target="_blank"><font color=red>0</font></a>&nbsp; </dd></dl></div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="https://fishc.com.cn/forum.php?mod=redirect&goto=findpost&ptid=62190&pid=3535437"   id="postnum3535437" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>17</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon3535437" src="static/image/common/online_member.gif" />
+<em id="authorposton3535437">发表于 2018-9-8 23:18:21</em>
+<span class="pipe">|</span>
+<a href="https://fishc.com.cn/forum.php?mod=viewthread&amp;tid=62190&amp;page=1&amp;authorid=584873" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_3535437">
+<div class="blockcode"><div id="code_O0K"><ol><li>import pygame <br />
+<li>import sys<br />
+<li>import traceback<br />
+<li>from pygame.locals import *<br />
+<li>import myplane<br />
+<li>import&nbsp;&nbsp;enemy<br />
+<li>import bullet<br />
+<li>pygame.init()&nbsp; &nbsp;#初始化所有pygame子模块 返回一个tuple init()-&gt;(numpass, numfail)<br />
+<li>pygame.mixer.init()#初始化mixer模块：控制声音<br />
+<li><br />
+<li>bg_size=width,height=480,700<br />
+<li>pygame.display.set_caption(&quot;飞机大战&quot;) #设置标题，返回None<br />
+<li>screen=pygame.display.set_mode(bg_size) #设置窗口大小 返回surfice对象<br />
+<li><br />
+<li>background=pygame.image.load(&quot;images/background.png&quot;).convert()<br />
+<li>#设置背景返回surfice对象<br />
+<li>BLACK=(0,0,0)<br />
+<li>GREEN=(0,255,0)<br />
+<li>RED=(255,0,0)<br />
+<li>#载入游戏音乐<br />
+<li>#pygame.mixer.music 控制音频流的模块<br />
+<li>pygame.mixer.music.load(&quot;sound/game_music.ogg&quot;)#load函数返回none<br />
+<li>pygame.mixer.music.set_volume(0.2)#设置音量0-1<br />
+<li>bullet_sound=pygame.mixer.Sound(&quot;sound/bullet.wav&quot;)#返回一个sound对象<br />
+<li>bullet_sound.set_volume(0.2)#设置音量<br />
+<li>use_bomb_sound=pygame.mixer.Sound(&quot;sound/use_bomb.wav&quot;)&nbsp;&nbsp;#使用炸弹<br />
+<li>use_bomb_sound.set_volume(0.2)<br />
+<li>supply_sound=pygame.mixer.Sound(&quot;sound/supply.wav&quot;)#供给<br />
+<li>supply_sound.set_volume(0.2)<br />
+<li>get_bomb_sound=pygame.mixer.Sound(&quot;sound/get_bomb.wav&quot;)#得到炸弹<br />
+<li>get_bomb_sound.set_volume(0.2)<br />
+<li>get_bullet_sound=pygame.mixer.Sound(&quot;sound/get_bullet.wav&quot;)#被击中<br />
+<li>get_bullet_sound.set_volume(0.2)<br />
+<li>upgrade_sound=pygame.mixer.Sound(&quot;sound/upgrade.wav&quot;)#升级<br />
+<li>upgrade_sound.set_volume(0.2)<br />
+<li>enemy3_flying_sound=pygame.mixer.Sound(&quot;sound/enemy3_flying.wav&quot;)<br />
+<li>enemy3_flying_sound.set_volume(0.2)<br />
+<li>enemy1_down_sound=pygame.mixer.Sound(&quot;sound/enemy1_down.wav&quot;)<br />
+<li>enemy1_down_sound.set_volume(0.2)<br />
+<li>enemy2_down_sound=pygame.mixer.Sound(&quot;sound/enemy2_down.wav&quot;)<br />
+<li>enemy2_down_sound.set_volume(0.2)<br />
+<li>enemy3_down_sound=pygame.mixer.Sound(&quot;sound/enemy3_down.wav&quot;)<br />
+<li>enemy3_down_sound.set_volume(0.2)<br />
+<li>me_down_sound=pygame.mixer.Sound(&quot;sound/me_down.wav&quot;)<br />
+<li>me_down_sound.set_volume(0.2)<br />
+<li><br />
+<li>def&nbsp;&nbsp;add_small_enemies(group1,group2,num):<br />
+<li>&nbsp; &nbsp; for i in range(num):<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;e1=enemy.SmallEnemy(bg_size)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;group1.add(e1)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;group2.add(e1)<br />
+<li>def&nbsp;&nbsp;add_mid_enemies(group1,group2,num):<br />
+<li>&nbsp; &nbsp; for i in range(num):<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;e2=enemy.MidEnemy(bg_size)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;group1.add(e2)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;group2.add(e2)<br />
+<li>def&nbsp;&nbsp;add_big_enemies(group1,group2,num):<br />
+<li>&nbsp; &nbsp; for i in range(num):<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;e3=enemy.BigEnemy(bg_size)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;group1.add(e3)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;group2.add(e3)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<br />
+<li>&nbsp; &nbsp; <br />
+<li>def main():<br />
+<li>&nbsp; &nbsp; pygame.mixer.music.play(-1)#参数-1控制背景音乐流重复播放<br />
+<li><br />
+<li>&nbsp; &nbsp; #生成我方飞机<br />
+<li>&nbsp; &nbsp; me=myplane.MyPlane(bg_size)<br />
+<li>&nbsp; &nbsp; #生成敌方飞机 利用精灵组<br />
+<li>&nbsp; &nbsp; enemies=pygame.sprite.Group()#######<br />
+<li>&nbsp; &nbsp; #生成敌方小型飞机<br />
+<li>&nbsp; &nbsp; small_enemies=pygame.sprite.Group() <br />
+<li>&nbsp; &nbsp; add_small_enemies(small_enemies,enemies,15)<br />
+<li>&nbsp; &nbsp; #生成敌方中型飞机<br />
+<li>&nbsp; &nbsp; mid_enemies=pygame.sprite.Group()<br />
+<li>&nbsp; &nbsp; add_mid_enemies(mid_enemies,enemies,6)<br />
+<li>&nbsp; &nbsp; #生成敌方大型飞机<br />
+<li>&nbsp; &nbsp; big_enemies=pygame.sprite.Group()<br />
+<li>&nbsp; &nbsp; add_big_enemies(big_enemies,enemies,3)<br />
+<li>&nbsp; &nbsp; #生成普通子弹<br />
+<li>&nbsp; &nbsp; bullet1=[]<br />
+<li>&nbsp; &nbsp; bullet1_index=0<br />
+<li>&nbsp; &nbsp; BULLET1_NUM=4<br />
+<li>&nbsp; &nbsp; for i in range(BULLET1_NUM):<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;bullet1.append(bullet.Bullet1(me.rect.midtop))<br />
+<li>&nbsp; &nbsp; <br />
+<li>&nbsp; &nbsp; clock=pygame.time.Clock()<br />
+<li>&nbsp; &nbsp; <br />
+<li>&nbsp; &nbsp; #中弹图片索引<br />
+<li>&nbsp; &nbsp; e1_destroy_index=0<br />
+<li>&nbsp; &nbsp; e2_destroy_index=0<br />
+<li>&nbsp; &nbsp; e3_destroy_index=0<br />
+<li>&nbsp; &nbsp; me_destroy_index=0<br />
+<li>&nbsp; &nbsp; <br />
+<li>&nbsp; &nbsp; #统计得分<br />
+<li>&nbsp; &nbsp; score=0<br />
+<li>&nbsp; &nbsp; score_font=pygame.font.Font(&quot;font/font.ttf&quot;,36)<br />
+<li>&nbsp; &nbsp; <br />
+<li>&nbsp; &nbsp; #标志是否暂停游戏<br />
+<li>&nbsp; &nbsp; paused=False<br />
+<li>&nbsp; &nbsp; pause_nor_image=pygame.image.load(&quot;images/pause_nor.png&quot;).convert_alpha()<br />
+<li>&nbsp; &nbsp; pause_pressed_image=pygame.image.load(&quot;images/pause_pressed.png&quot;).convert_alpha<br />
+<li>&nbsp; &nbsp; resume_nor_image=pygame.image.load(&quot;images/resume_nor.png&quot;).convert_alpha<br />
+<li>&nbsp; &nbsp; resume_pressed_image=pygame.image.load(&quot;images/resume_pressed.png&quot;).convert_alpha<br />
+<li>&nbsp; &nbsp; paused_rect=pause_nor_image.get_rect()<br />
+<li>&nbsp; &nbsp; paused_rect.left,paused_rect.top=width-paused_rect.width-10,10<br />
+<li>&nbsp; &nbsp; paused_image=pause_nor_image<br />
+<li>&nbsp; &nbsp; <br />
+<li>&nbsp; &nbsp; #用于切换图片<br />
+<li>&nbsp; &nbsp; switch_image=True<br />
+<li>&nbsp; &nbsp; <br />
+<li>&nbsp; &nbsp; #用于延迟<br />
+<li>&nbsp; &nbsp; delay=100<br />
+<li>&nbsp; &nbsp; <br />
+<li>&nbsp; &nbsp; running=True<br />
+<li>&nbsp; &nbsp; <br />
+<li>&nbsp; &nbsp; #开始循环<br />
+<li>&nbsp; &nbsp; while running:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;for event in pygame.event.get():<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;if event.type==QUIT:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; pygame.quit()&nbsp; &nbsp;<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; sys.exit()<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; <br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;elif&nbsp;&nbsp;event.type==MOUSEBUTTONDOWN:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; #在矩形图片里面点击则paused改变<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; if event.button==1 and paused_rect.collidepoint(event.pos):<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;paused= not paused<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; #检测鼠标的移动&nbsp; &nbsp;&nbsp;&nbsp;<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;elif event.type==MOUSEMOTION:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; if paused_rect.collidepoint(event.pos):<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;if paused:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;paused_image=resume_pressed_image<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;else:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;paused_image=pause_pressed_image<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; else:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;if paused:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;paused_image=resume_nor_image<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;else:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;paused_image=pause_nor_image<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; <br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;if not paused:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;#用key模块检测用户的键盘操作<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;key_pressed=pygame.key.get_pressed()<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;#返回一个布尔类型的序列,可以用下标访问<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;if key_pressed[K_w] or key_pressed[K_UP]:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; me.moveUp()<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;if key_pressed[K_s] or key_pressed[K_DOWN]:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; me.moveDown()<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;if key_pressed[K_a] or key_pressed[K_LEFT]:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; me.moveLeft()<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;if key_pressed[K_d] or key_pressed[K_RIGHT]:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; me.moveRight()<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; <br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;#将背景绘在screen上&nbsp; &nbsp;<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;screen.blit(background,(0,0))<br />
+<li><br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;#装填子弹<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;if not(delay % 10):<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; bullet1[bullet1_index].reset(me.rect.midtop)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; bullet1_index=(bullet1_index+1)%BULLET1_NUM<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;for&nbsp;&nbsp;b in bullet1:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; if b.active:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;b.move()<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;screen.blit(b.image,b.rect)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;enemy_hit=pygame.sprite.spritecollide(b,enemies,False,pygame.sprite.collide_mask)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;if enemy_hit:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;b.active=False<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;for e in enemy_hit:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; if e in mid_enemies or e in big_enemies:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;e.energy-=1<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;e.hit=True<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;if e.energy==0:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;e.active=False<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; else:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;e.active=False&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;#绘制大型敌机<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;for each in big_enemies:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; if each.active:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;each.move()<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;if each.hit:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;screen.blit(each.hit_image,each.rect)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;each.hit=False<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;else: <br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;if switch_image:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; screen.blit(each.image1,each.rect)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;else:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; screen.blit(each.image2,each.rect)<br />
+<li><br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;#绘制血槽<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;pygame.draw.line(screen,BLACK,\<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; (each.rect.left,each.rect.top-5),\<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; (each.rect.right,each.rect.top-5),\<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 2)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;#当生命大于20%显示绿色，否则显示红色<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;energy_remain=each.energy/enemy.BigEnemy.energy<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;if energy_remain&gt;0.2:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;energy_color=GREEN<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;else:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;energy_color=RED<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;pygame.draw.line(screen,energy_color,\<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; (each.rect.left,each.rect.top-5),\<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; (each.rect.left+each.rect.width*energy_remain,\<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;each.rect.top-5),2)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;#大型敌机快要接近时开始循环播放音乐<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;if each.rect.bottom==-50:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;enemy3_flying_sound.play(-1)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; else:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;if not(delay%3):<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;if e3_destroy_index==0:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; enemy3_down_sound.play()<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;screen.blit(each.destroy_images[e3_destroy_index]\<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ,each.rect)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;e3_destroy_index=(e3_destroy_index+1)%6<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;if e3_destroy_index==0:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; score+=10000<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; enemy3_flying_sound.stop()<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; each.reset()<br />
+<li><br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; <br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;#绘制中型机<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;for each in mid_enemies:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; if each.active:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;each.move()<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;if each.hit:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;screen.blit(each.hit_image,each.rect)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;each.hit=False<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;else:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;screen.blit(each.image,each.rect)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;#绘制血槽<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;pygame.draw.line(screen,BLACK,\<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; (each.rect.left,each.rect.top-5),\<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; (each.rect.right,each.rect.top-5),\<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 2)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;#当生命大于20%显示绿色，否则显示红色<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;energy_remain=each.energy/enemy.BigEnemy.energy<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;if energy_remain&gt;0.2:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;energy_color=GREEN<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;else:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;energy_color=RED<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;pygame.draw.line(screen,energy_color,\<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; (each.rect.left,each.rect.top-5),\<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; (each.rect.left+each.rect.width*energy_remain,\<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;each.rect.top-5),2)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; else:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;if not(delay%3):<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;if e2_destroy_index==0:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;enemy2_down_sound.play()<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;screen.blit(each.destroy_images[e2_destroy_index]\<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;,each.rect)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;e2_destroy_index=(e2_destroy_index+1)%4<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;if e2_destroy_index==0:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; score+=6000<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; each.reset()<br />
+<li><br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; <br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; <br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;#绘制小型机<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;for each in small_enemies:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; if each.active:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;each.move()<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;screen.blit(each.image,each.rect)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; else:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;if e1_destroy_index==0:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;enemy1_down_sound.play()<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;if not(delay%3):<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;screen.blit(each.destroy_images[e1_destroy_index]\<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;,each.rect)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;e1_destroy_index=(e1_destroy_index+1)%4<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;#下面这个if语句不能和上面的if并列<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;if e1_destroy_index==0:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; score+=1000<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; each.reset()<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; <br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;#利用循环不断更改image的位置并绘制它的像素<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;#实际上一直利用的是未循环之前装在group中的那些敌机<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;#先绘制big保证小飞机的像素出现在大飞机的上面<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; <br />
+<li><br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;#检测碰撞<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;enemies_down=pygame.sprite.spritecollide(me,enemies,False,pygame.sprite.collide_mask)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;if enemies_down:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; me.active=False<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; for e in enemies_down:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;e.active=False<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;#绘制我方飞机,me.rec传入矩形左上角的坐标<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;if me.active:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; if switch_image:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;screen.blit(me.image1,me.rect)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; else:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;screen.blit(me.image2,me.rect)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;else:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; if not(delay%3):<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;if me_destroy_index==0:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;me_down_sound.play()<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;screen.blit(me.destroy_images[me_destroy_index]\<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;,me.rect)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;me_destroy_index=(me_destroy_index+1)%4<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;if me_destroy_index==0:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;print(&quot;Game Over!&quot;)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;running=False<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;score_text=score_font.render(&quot;Score : %d&quot;%score,True,(255,255,255))<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;screen.blit(score_text,(10,5))<br />
+<li><br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;#绘制暂停按钮<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;screen.blit(paused_image,paused_rect)<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;#飞机图片切换开关（五的倍数切换图片）&nbsp; &nbsp;&nbsp;&nbsp;<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;if not(delay % 5):<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;switch_image=not switch_image<br />
+<li><br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;delay-=1<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;if not delay:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;delay=100<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;pygame.display.flip()<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;clock.tick(60)<br />
+<li><br />
+<li>if __name__==&quot;__main__&quot;:<br />
+<li>&nbsp; &nbsp; try:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;main()<br />
+<li>&nbsp; &nbsp; except SystemExit:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;pass<br />
+<li>&nbsp; &nbsp; except:<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;traceback.print_exc()<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;pygame.quit()<br />
+<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;input()<br />
+<li>&nbsp; &nbsp; <br />
+<li>&nbsp; &nbsp; <br />
+<li></ol></div><em onclick="copycode($('code_O0K'));">复制代码</em></div></td></tr></table>
+
+
+</div>
+<div id="comment_3535437" class="cm">
+</div>
+
+<div id="post_rate_div_3535437"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div class="sign">想知道小甲鱼最近在做啥？请访问 -> <a href="https://ilovefishc.com" target="_blank">ilovefishc.com</a></div>
+</td>
+</tr>
+<tr id="_postposition3535437"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=243&amp;tid=62190&amp;repquote=3535437&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+<a class="replyadd" href="forum.php?mod=misc&amp;action=postreview&amp;do=support&amp;tid=62190&amp;pid=3535437&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_support_3535437').innerHTML ? $('review_support_3535437').innerHTML : 0) + ' 人 支持'">支持 <span id="review_support_3535437"></span></a>
+<a class="replysubtract" href="forum.php?mod=misc&amp;action=postreview&amp;do=against&amp;tid=62190&amp;pid=3535437&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_against_3535437').innerHTML ? $('review_against_3535437').innerHTML : 0) + ' 人 反对'">反对 <span id="review_against_3535437"></span></a>
+</em>
+
+<p>
+<a href="javascript:;" onclick="showWindow('miscreport3535437', 'misc.php?mod=report&rtype=post&rid=3535437&tid=62190&fid=243', 'get', -1);return false;">举报</a>
+</p>
+
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_3535441" ><table id="pid3535441" class="plhin" summary="pid3535441" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar3535441" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="https://fishc.com.cn/space-uid-584873.html" target="_blank" class="xw1">银色子弹zjt</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo3535441" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo3535441_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="https://fishc.com.cn/space-uid-584873.html" target="_blank" class="xi2">银色子弹zjt</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+	<dt>UID</dt><dd><a href="?584873" target="_blank" class="xi2">584873</a></dd>
+	<dt>日志</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=584873&do=blog&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>相册</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=584873&do=album&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>贡献</dt><dd> </dd>
+	<dt>荣誉</dt><dd> </dd>
+	<dt>技术值</dt><dd> </dd>
+</dl>
+<div class="imicn">
+<a href="https://fishc.com.cn/home.php?mod=space&amp;uid=584873&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="https://fishc.com.cn/space-uid-584873.html" class="avtm" target="_blank"><img src="https://fishc.com.cn/ucenter/avatar.php?uid=584873&size=middle" /></a></div>
+</div>
+<dl class="pil cl"><dt><a href="bestanswer.php?mod=user&uid=584873" target="_blank"><font color=red>最佳答案</font></a></dt><dd><a href="bestanswer.php?mod=user&uid=584873" target="_blank"><font color=red>0</font></a>&nbsp; </dd></dl></div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="https://fishc.com.cn/forum.php?mod=redirect&goto=findpost&ptid=62190&pid=3535441"   id="postnum3535441" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>18</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon3535441" src="static/image/common/online_member.gif" />
+<em id="authorposton3535441">发表于 2018-9-8 23:20:28</em>
+<span class="pipe">|</span>
+<a href="https://fishc.com.cn/forum.php?mod=viewthread&amp;tid=62190&amp;page=1&amp;authorid=584873" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_3535441">
+上面是我的main.py代码，但是跑起来后我把鼠标移动到右上角暂停键上，就出现了下面的错误：<br />
+File &quot;C:\Users\123\Desktop\飞机大战\main.py&quot;, line 314, in main<br />
+&nbsp; &nbsp; screen.blit(paused_image,paused_rect)<br />
+TypeError: argument 1 must be pygame.Surface, not builtin_function_or_method</td></tr></table>
+
+
+</div>
+<div id="comment_3535441" class="cm">
+</div>
+
+<div id="post_rate_div_3535441"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div class="sign">想知道小甲鱼最近在做啥？请访问 -> <a href="https://ilovefishc.com" target="_blank">ilovefishc.com</a></div>
+</td>
+</tr>
+<tr id="_postposition3535441"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=243&amp;tid=62190&amp;repquote=3535441&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+<a class="replyadd" href="forum.php?mod=misc&amp;action=postreview&amp;do=support&amp;tid=62190&amp;pid=3535441&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_support_3535441').innerHTML ? $('review_support_3535441').innerHTML : 0) + ' 人 支持'">支持 <span id="review_support_3535441"></span></a>
+<a class="replysubtract" href="forum.php?mod=misc&amp;action=postreview&amp;do=against&amp;tid=62190&amp;pid=3535441&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_against_3535441').innerHTML ? $('review_against_3535441').innerHTML : 0) + ' 人 反对'">反对 <span id="review_against_3535441"></span></a>
+</em>
+
+<p>
+<a href="javascript:;" onclick="showWindow('miscreport3535441', 'misc.php?mod=report&rtype=post&rid=3535441&tid=62190&fid=243', 'get', -1);return false;">举报</a>
+</p>
+
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_3535893" ><table id="pid3535893" class="plhin" summary="pid3535893" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar3535893" class="pls favatar">
+ <a name="lastpost"></a><div class="pi">
+<div class="authi"><a href="https://fishc.com.cn/space-uid-584873.html" target="_blank" class="xw1">银色子弹zjt</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo3535893" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo3535893_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="https://fishc.com.cn/space-uid-584873.html" target="_blank" class="xi2">银色子弹zjt</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+	<dt>UID</dt><dd><a href="?584873" target="_blank" class="xi2">584873</a></dd>
+	<dt>日志</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=584873&do=blog&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>相册</dt><dd><a href="https://fishc.com.cn/home.php?mod=space&uid=584873&do=album&view=me&from=space" target="_blank" class="xi2"></a></dd>
+	<dt>贡献</dt><dd> </dd>
+	<dt>荣誉</dt><dd> </dd>
+	<dt>技术值</dt><dd> </dd>
+</dl>
+<div class="imicn">
+<a href="https://fishc.com.cn/home.php?mod=space&amp;uid=584873&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="https://fishc.com.cn/space-uid-584873.html" class="avtm" target="_blank"><img src="https://fishc.com.cn/ucenter/avatar.php?uid=584873&size=middle" /></a></div>
+</div>
+<dl class="pil cl"><dt><a href="bestanswer.php?mod=user&uid=584873" target="_blank"><font color=red>最佳答案</font></a></dt><dd><a href="bestanswer.php?mod=user&uid=584873" target="_blank"><font color=red>0</font></a>&nbsp; </dd></dl></div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="https://fishc.com.cn/forum.php?mod=redirect&goto=findpost&ptid=62190&pid=3535893"   id="postnum3535893" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>19</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon3535893" src="static/image/common/online_member.gif" />
+<em id="authorposton3535893">发表于 2018-9-9 13:02:48</em>
+<span class="pipe">|</span>
+<a href="https://fishc.com.cn/forum.php?mod=viewthread&amp;tid=62190&amp;page=1&amp;authorid=584873" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_3535893">
+ok,已经解决了<br />
+</td></tr></table>
+
+
+</div>
+<div id="comment_3535893" class="cm">
+</div>
+
+<div id="post_rate_div_3535893"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div class="sign">想知道小甲鱼最近在做啥？请访问 -> <a href="https://ilovefishc.com" target="_blank">ilovefishc.com</a></div>
+</td>
+</tr>
+<tr id="_postposition3535893"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=243&amp;tid=62190&amp;repquote=3535893&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+<a class="replyadd" href="forum.php?mod=misc&amp;action=postreview&amp;do=support&amp;tid=62190&amp;pid=3535893&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_support_3535893').innerHTML ? $('review_support_3535893').innerHTML : 0) + ' 人 支持'">支持 <span id="review_support_3535893"></span></a>
+<a class="replysubtract" href="forum.php?mod=misc&amp;action=postreview&amp;do=against&amp;tid=62190&amp;pid=3535893&amp;hash=b20f009e"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_against_3535893').innerHTML ? $('review_against_3535893').innerHTML : 0) + ' 人 反对'">反对 <span id="review_against_3535893"></span></a>
+</em>
+
+<p>
+<a href="javascript:;" onclick="showWindow('miscreport3535893', 'misc.php?mod=report&rtype=post&rid=3535893&tid=62190&fid=243', 'get', -1);return false;">举报</a>
+</p>
+
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="postlistreply" class="pl"><div id="post_new" class="viewthread_table" style="display: none"></div></div>
+</div>
+
+
+<form method="post" autocomplete="off" name="modactions" id="modactions">
+<input type="hidden" name="formhash" value="b20f009e" />
+<input type="hidden" name="optgroup" />
+<input type="hidden" name="operation" />
+<input type="hidden" name="listextra" value="page%3D1" />
+<input type="hidden" name="page" value="1" />
+</form>
+
+
+
+<div class="pgs mtm mbm cl">
+<span class="pgb y"><a href="https://fishc.com.cn/forum-243-1.html">返回列表</a></span>
+<a id="newspecialtmp" onmouseover="$('newspecial').id = 'newspecialtmp';this.id = 'newspecial';showMenu({'ctrlid':this.id})" onclick="showWindow('newthread', 'forum.php?mod=post&action=newthread&fid=243')" href="javascript:;" title="发新帖"><img src="static/image/common/pn_post.png" alt="发新帖" /></a>
+</div>
+
+<!--[diy=diyfastposttop]--><div id="diyfastposttop" class="area"></div><!--[/diy]-->
+<script type="text/javascript">
+var postminchars = parseInt('0');
+var postmaxchars = parseInt('50000');
+var disablepostctrl = parseInt('0');
+</script>
+
+<div id="f_pst" class="pl bm bmw">
+<form method="post" autocomplete="off" id="fastpostform" action="forum.php?mod=post&amp;action=reply&amp;fid=243&amp;tid=62190&amp;extra=page%3D1&amp;replysubmit=yes&amp;infloat=yes&amp;handlekey=fastpost" onSubmit="return fastpostvalidate(this)">
+<table cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls">
+</td>
+<td class="plc">
+
+<span id="fastpostreturn"></span>
+
+
+<div class="cl">
+<div id="fastsmiliesdiv" class="y"><div id="fastsmiliesdiv_data"><div id="fastsmilies"></div></div></div><div class="hasfsl" id="fastposteditor">
+<div class="tedt mtn">
+<div class="bar">
+<span class="y">
+<a href="https://fishc.com.cn/forum.php?mod=post&amp;action=reply&amp;fid=243&amp;tid=62190" onclick="return switchAdvanceMode(this.href)">高级模式</a>
+</span><script src="data/cache/seditor.js?qqI" type="text/javascript"></script>
+<div class="fpd">
+<a href="javascript:;" title="文字加粗" class="fbld">B</a>
+<a href="javascript:;" title="设置文字颜色" class="fclr" id="fastpostforecolor">Color</a>
+<a id="fastpostimg" href="javascript:;" title="图片" class="fmg">Image</a>
+<a id="fastposturl" href="javascript:;" title="添加链接" class="flnk">Link</a>
+<a id="fastpostquote" href="javascript:;" title="引用" class="fqt">Quote</a>
+<a id="fastpostcode" href="javascript:;" title="代码" class="fcd">Code</a>
+<a href="javascript:;" class="fsml" id="fastpostsml">Smilies</a>
+</div></div>
+<div class="area">
+<div class="pt hm">
+您需要登录后才可以回帖 <a href="member.php?mod=logging&amp;action=login" onclick="showWindow('login', this.href)" class="xi2">登录</a> | <a href="member.php?mod=register_86" class="xi2">立即注册</a>
+
+<a href="javascript:;" onclick="showWindow('wechat_bind', 'plugin.php?id=wechat:bind')"><img src="source/plugin/wechat/image/wechat_login.png" class="vm" /></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="seccheck_fastpost">
+</div>
+
+
+<input type="hidden" name="formhash" value="b20f009e" />
+<input type="hidden" name="usesig" value="" />
+<input type="hidden" name="subject" value="  " />
+<p class="ptm pnpost">
+<a href="https://fishc.com.cn/home.php?mod=spacecp&amp;ac=credit&amp;op=rule&amp;fid=243" class="y" target="_blank">本版积分规则</a>
+<button type="button" onclick="showWindow('login', 'member.php?mod=logging&action=login&guestmessage=yes')"  onmouseover="checkpostrule('seccheck_fastpost', 'ac=reply');this.onmouseover=null" name="replysubmit" id="fastpostsubmit" class="pn pnc vm" value="replysubmit" tabindex="5"><strong>发表回复</strong></button>
+<label for="fastpostrefresh"><input id="fastpostrefresh" type="checkbox" class="pc" />回帖后跳转到最后一页</label>
+<script type="text/javascript">if(getcookie('fastpostrefresh') == 1) {$('fastpostrefresh').checked=true;}</script>
+</p>
+</td>
+</tr>
+</table>
+</form>
+</div>
+
+<script type="text/javascript">
+new lazyload();
+</script>
+<script type="text/javascript">document.onkeyup = function(e){keyPageScroll(e, 0, 0, 'forum.php?mod=viewthread&tid=62190', 1);}</script>
+</div>
+
+<div class="wp mtn">
+<!--[diy=diy3]--><div id="diy3" class="area"></div><!--[/diy]-->
+</div>
+<script type="text/javascript">
+var relatedlink = [];relatedlink[0] = {'sname':'教程', 'surl':'http://fishc.taobao.com'};
+relatedlink[1] = {'sname':'vip', 'surl':'http://fishc.taobao.com'};
+relatedlink[2] = {'sname':'', 'surl':''};
+relatedlinks('postmessage_2366597');
+</script>
+
+<script type="text/javascript">
+function succeedhandle_followmod(url, msg, values) {
+var fObj = $('followmod_'+values['fuid']);
+if(values['type'] == 'add') {
+fObj.innerHTML = '不收听';
+fObj.href = 'home.php?mod=spacecp&ac=follow&op=del&fuid='+values['fuid'];
+} else if(values['type'] == 'del') {
+fObj.innerHTML = '收听TA';
+fObj.href = 'home.php?mod=spacecp&ac=follow&op=add&hash=b20f009e&fuid='+values['fuid'];
+}
+}
+fixed_avatar([2366597,2398988,2399123,2425904,2455523,2734051,2734055,2781051,2791888,2829104,2846745,2846764,2900786,3129621,3522339,3522392,3535437,3535441,3535893], 0);
+</script>	</div>
+<div class="a_cn"style="line-height:390px;height:390px"><p class="close" id="ad_corner_close" onclick="setcookie('adclose_52', 1, 86400);this.parentNode.style.display='none'"><a href="javascript:;"><img src="static/image/common/ad_close.gif" /></a></p><a href="https://mp.weixin.qq.com/s/hUfrZYRqElHXnrlDbx4F7w" target="_blank"><img src="https://fishc.com.cn/data/attachment/common/cf/172602c8q0jldh30zyky0n.png" height="390" width="300" alt="小甲鱼新书上市，限量优惠（微信扫一扫）^_^" border="0"></a></div><div id="ft" class="wp cl">
+<div id="flk" class="y">
+<p>
+<a href="https://fishc.com.cn/forum.php?mod=misc&action=showdarkroom" >小黑屋</a><span class="pipe">|</span><a href="https://fishc.com.cn/forum.php?mobile=yes" >手机版</a><span class="pipe">|</span><a href="https://fishc.com.cn/archiver/" >Archiver</a><span class="pipe">|</span><strong><a href="https://fishc.com.cn" target="_blank">鱼C工作室</a></strong>
+( <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备18085999号</a> )&nbsp;<a href="http://addon.discuz.com/?@tongdun.plugin" target="_blank" title="同盾防灌水，杜绝网站不良信息！"><img src="source/plugin/tongdun/tongdun.png" /></a></p>
+<p class="xs0">
+GMT+8, 2019-4-16 20:50<span id="debuginfo">
+</span>
+</p>
+</div>
+<div id="frt">
+<p>Powered by <strong><a href="http://www.discuz.net" target="_blank">Discuz!</a></strong> <em>X3.4</em></p>
+<p class="xs0">&copy; 2001-2017 <a href="http://www.comsenz.com" target="_blank">Comsenz Inc.</a></p>
+</div></div>
+
+<div id="scrolltop">
+<span><a href="https://fishc.com.cn/forum.php?mod=post&amp;action=reply&amp;fid=243&amp;tid=62190&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)" class="replyfast" title="快速回复"><b>快速回复</b></a></span>
+<span hidefocus="true"><a title="返回顶部" onclick="window.scrollTo('0','0')" class="scrolltopa" ><b>返回顶部</b></a></span>
+<span>
+<a href="https://fishc.com.cn/forum-243-1.html" hidefocus="true" class="returnlist" title="返回列表"><b>返回列表</b></a>
+</span>
+</div>
+<script type="text/javascript">_attachEvent(window, 'scroll', function () { showTopLink(); });checkBlind();</script>
+</body>
+</html>
